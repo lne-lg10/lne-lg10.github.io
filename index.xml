@@ -1,0 +1,27 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>白髮如新 傾蓋如故</title>
+    <link>https://lne-lg10.github.io/</link>
+    <description>Recent content on 白髮如新 傾蓋如故</description>
+    <generator>Hugo - gohugo.io</generator>
+    <language>en</language>
+    <contact>CSU9GO4JZ7XUC@tutanota.com</contact>
+    <copyright>文章均爲原創，請勿轉載，謝謝！&copy; <a href="https://github.com/lne-lg10">青山</a> 2020</copyright>
+    
+        <atom:link href="https://lne-lg10.github.io/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>Posts</title>
+      <link>https://lne-lg10.github.io/post/</link>
+      <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
+      <author>青山</author>
+      <guid>https://lne-lg10.github.io/post/</guid>
+      <description></description>
+      
+      <content></content>
+      
+    </item>
+    
+  </channel>
+</rss>

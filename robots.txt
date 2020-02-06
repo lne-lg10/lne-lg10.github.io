@@ -1,0 +1,3 @@
+User-agent: *
+
+Sitemap: https://lne-lg10.github.io/sitemap.xml
