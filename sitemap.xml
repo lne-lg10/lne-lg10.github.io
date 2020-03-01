@@ -73,13 +73,28 @@
   </url>
   
   <url>
+    <loc>https://lne-lg10.github.io/post/recruiting/</loc>
+    <lastmod>2019-06-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lne-lg10.github.io/tags/%E8%83%A1%E8%A8%80%E4%BA%82%E8%AA%9E/</loc>
+    <lastmod>2019-06-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://lne-lg10.github.io/post/brave_new_world/</loc>
     <lastmod>2019-05-31T00:00:00+00:00</lastmod>
   </url>
   
   <url>
-    <loc>https://lne-lg10.github.io/tags/%E8%83%A1%E8%A8%80%E4%BA%82%E8%AA%9E/</loc>
-    <lastmod>2018-11-05T00:00:00+00:00</lastmod>
+    <loc>https://lne-lg10.github.io/post/inaction_temple/</loc>
+    <lastmod>2019-04-19T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lne-lg10.github.io/tags/%E9%81%8A%E8%A8%98/</loc>
+    <lastmod>2019-04-19T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -115,11 +130,6 @@
   <url>
     <loc>https://lne-lg10.github.io/post/shitizen/</loc>
     <lastmod>2018-08-03T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>https://lne-lg10.github.io/tags/%E9%81%8A%E8%A8%98/</loc>
-    <lastmod>2018-06-01T00:00:00+00:00</lastmod>
   </url>
   
   <url>
@@ -278,6 +288,11 @@
   </url>
   
   <url>
+    <loc>https://lne-lg10.github.io/post/to_be_or_not_to_be/</loc>
+    <lastmod>2013-11-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
     <loc>https://lne-lg10.github.io/post/solo_travel/</loc>
     <lastmod>2012-07-12T00:00:00+00:00</lastmod>
   </url>
@@ -335,6 +350,21 @@
   <url>
     <loc>https://lne-lg10.github.io/post/write_for_friend/</loc>
     <lastmod>2009-05-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lne-lg10.github.io/tags/%E4%BA%BA%E6%96%87/</loc>
+    <lastmod>2008-12-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lne-lg10.github.io/tags/%E5%A4%A9%E6%96%87/</loc>
+    <lastmod>2008-12-15T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://lne-lg10.github.io/post/stellarium/</loc>
+    <lastmod>2008-12-15T00:00:00+00:00</lastmod>
   </url>
   
 </urlset>

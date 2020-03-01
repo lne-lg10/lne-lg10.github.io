@@ -142,6 +142,8 @@
 	
 	<li><a href="/post/farewell_shuanglang/">青玉案</a></li>
 	
+	<li><a href="/post/to_be_or_not_to_be/">醜奴兒</a></li>
+	
 	<li><a href="/post/living_in_the_village/">如夢令 鄉居</a></li>
 	
 </ul>
@@ -157,8 +159,6 @@
   <div class="container">
     <aside><div id="disqus_thread"></div></aside>
   
-    <div id="show_comments"><a id="load_comments" class="button is-link">Load comments</a></div>
-  
     <script type="text/javascript">
       var disqus_shortname = 'XgNxS6SOhu';
       function disqus() {
@@ -167,17 +167,7 @@
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
       }
   
-      
-      var hash = window.location.hash.substr(1);
-      if ((hash.length > 8) && (hash.substring(0, 8) === "comment-")) {
-        disqus();
-        document.getElementById("show_comments").style.display = "none";
-      } else {
-        document.getElementById('load_comments').onclick = function() {
-          disqus();
-          document.getElementById("show_comments").style.display = "none";
-        };
-      }
+      disqus();
   
 
     </script>

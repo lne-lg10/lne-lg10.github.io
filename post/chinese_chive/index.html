@@ -11,7 +11,7 @@
 我是家裏的韭菜
 父母用權威
 從我身上收割
-尊嚴和名譽
+尊嚴和地位
 讀書時
 我是學校的韭菜
 老師用學業
@@ -20,7 +20,7 @@
 長大了
 我是社會的韭菜
 精英用夢想
-從我身上收割 財富和榮耀
+從我身上收割 榮耀和財富
 今天
 我終於有了一片菜園
 種上了自己的韭菜
@@ -143,7 +143,7 @@
 我是家裏的韭菜<br>
 父母用權威<br>
 從我身上收割<br>
-尊嚴和名譽</p>
+尊嚴和地位</p>
 <p>讀書時<br>
 我是學校的韭菜<br>
 老師用學業<br>
@@ -153,7 +153,7 @@
 我是社會的韭菜<br>
 精英用夢想<br>
 從我身上收割 <br>
-財富和榮耀</p>
+榮耀和財富</p>
 <p>今天<br>
 我終於有了一片菜園<br>
 種上了自己的韭菜<br>
@@ -190,8 +190,6 @@
   <div class="container">
     <aside><div id="disqus_thread"></div></aside>
   
-    <div id="show_comments"><a id="load_comments" class="button is-link">Load comments</a></div>
-  
     <script type="text/javascript">
       var disqus_shortname = 'XgNxS6SOhu';
       function disqus() {
@@ -200,17 +198,7 @@
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
       }
   
-      
-      var hash = window.location.hash.substr(1);
-      if ((hash.length > 8) && (hash.substring(0, 8) === "comment-")) {
-        disqus();
-        document.getElementById("show_comments").style.display = "none";
-      } else {
-        document.getElementById('load_comments').onclick = function() {
-          disqus();
-          document.getElementById("show_comments").style.display = "none";
-        };
-      }
+      disqus();
   
 
     </script>

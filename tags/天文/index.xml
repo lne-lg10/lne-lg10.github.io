@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>天文 on 白髮如新 傾蓋如故</title>
+    <link>https://lne-lg10.github.io/tags/%E5%A4%A9%E6%96%87/</link>
+    <description>Recent content in 天文 on 白髮如新 傾蓋如故</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>&lt;a href=&#34;https://github.com/lne-lg10&#34;&gt;青山&lt;/a&gt; © 2020. 原創文章請勿轉載，謝謝！</copyright>
+    <lastBuildDate>Mon, 15 Dec 2008 00:00:00 +0000</lastBuildDate>
+    
+	<atom:link href="https://lne-lg10.github.io/tags/%E5%A4%A9%E6%96%87/index.xml" rel="self" type="application/rss+xml" />
+    
+    
+    <item>
+      <title>星之元素</title>
+      <link>https://lne-lg10.github.io/post/stellarium/</link>
+      <pubDate>Mon, 15 Dec 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://lne-lg10.github.io/post/stellarium/</guid>
+      <description>Stellarium 是一款非常優秀的天文軟件，它可以在電腦屏幕上展現出美麗而真實的星空，彌補生活在城市中的人們無法領略星空之美的遺憾。網上的介紹文字很多了，不想再重複。令我感興趣的是軟件的名字，在網上找了很久，也不知道從何而來，豆瓣裡有人從字面意思上翻譯為“星的元素”，於是翻看了元素週期表，發現很多金屬元素的英文確實以 ium 作為尾碼，真是有趣，以前竟然從來沒有留意過。Stellar + ium，這也許便是 Stellarium 這個名字的由來吧。星之元素，真是一個充滿了浪漫色彩的名字。</description>
+    </item>
+    
+  </channel>
+</rss>
