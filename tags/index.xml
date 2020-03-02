@@ -6,7 +6,7 @@
     <description>Recent content in Tags on 白髮如新 傾蓋如故</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
-    <copyright>&lt;a href=&#34;https://github.com/lne-lg10&#34;&gt;青山&lt;/a&gt; © 2020. 原創文章請勿轉載，謝謝！</copyright>
+    <copyright>&lt;a href=&#34;https://github.com/lne-lg10&#34;&gt;亂世閒人&lt;/a&gt; © 2020. 原創文章請勿轉載，謝謝！</copyright>
     <lastBuildDate>Sat, 15 Feb 2020 00:00:00 +0000</lastBuildDate>
     
 	<atom:link href="https://lne-lg10.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
@@ -94,6 +94,15 @@
     </item>
     
     <item>
+      <title>葩葩</title>
+      <link>https://lne-lg10.github.io/tags/%E8%91%A9%E8%91%A9/</link>
+      <pubDate>Wed, 14 Nov 2018 00:00:00 +0000</pubDate>
+      
+      <guid>https://lne-lg10.github.io/tags/%E8%91%A9%E8%91%A9/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>古體</title>
       <link>https://lne-lg10.github.io/tags/%E5%8F%A4%E9%AB%94/</link>
       <pubDate>Wed, 26 Sep 2018 00:00:00 +0000</pubDate>
@@ -175,9 +184,18 @@
     </item>
     
     <item>
+      <title>Lua</title>
+      <link>https://lne-lg10.github.io/tags/lua/</link>
+      <pubDate>Tue, 14 Apr 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://lne-lg10.github.io/tags/lua/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>人文</title>
       <link>https://lne-lg10.github.io/tags/%E4%BA%BA%E6%96%87/</link>
-      <pubDate>Mon, 15 Dec 2008 00:00:00 +0000</pubDate>
+      <pubDate>Tue, 14 Apr 2009 00:00:00 +0000</pubDate>
       
       <guid>https://lne-lg10.github.io/tags/%E4%BA%BA%E6%96%87/</guid>
       <description></description>
@@ -189,6 +207,15 @@
       <pubDate>Mon, 15 Dec 2008 00:00:00 +0000</pubDate>
       
       <guid>https://lne-lg10.github.io/tags/%E5%A4%A9%E6%96%87/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>c</title>
+      <link>https://lne-lg10.github.io/tags/c/</link>
+      <pubDate>Sun, 06 Apr 2008 00:00:00 +0000</pubDate>
+      
+      <guid>https://lne-lg10.github.io/tags/c/</guid>
       <description></description>
     </item>
     
