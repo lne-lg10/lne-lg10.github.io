@@ -114,13 +114,14 @@
     <div class="subtitle tags is-6 is-pulled-right">
       
       
-<a class="subtitle is-6" href="/tags/lua">#Lua</a>
+<a class="subtitle is-6" href="/tags/lua/">#Lua</a>
 
 
 
   
-  | <a class="subtitle is-6" href="/tags/%E4%BA%BA%E6%96%87">#人文</a>
+  | <a class="subtitle is-6" href="/tags/%E4%BA%BA%E6%96%87/">#人文</a>
   
+
 
       
     </div>
@@ -140,197 +141,197 @@
 </ul>
 <p>地圖的數據結構定義好了，剩下的就該開始實現遊戲過程中的邏輯了。首先要實現的是在地圖上隨機放置地雷。首先生成一個全部字元為 &ldquo;0&rdquo; 的字元串。然後利用 Lua 數學庫中的隨機數生成函數產生一個處於 [1, len] 區間的數字，len 表示字元串的長度。將這個數字所對應位置處的字元替換為 &ldquo;@&rdquo; 就大功告成了。因為 Lua 沒有直接替換字元串指定位置處的函數，所以我是用字元串取子串和字元串連接來實現的（代碼第11行）。接下來的幾個函數中的字元替換方法也採用了相似的方式（代碼第13、15行）。<br>
 需要注意的是，循環過程中隨機產生的數字有可能是重複的，為了能夠放置指定數量的地雷，需要在循環中判斷 &ldquo;@&rdquo; 字元的數量，如果達到指定數量的話才能退出循環（代碼第19行）。</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<div class="highlight"><div style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+<pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">24
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">lay_mine</span>(width, height, number)
-	<span style="color:#66d9ef">local</span> len <span style="color:#f92672">=</span> width <span style="color:#f92672">*</span> height
-	<span style="color:#66d9ef">if</span> number <span style="color:#f92672">&gt;</span> len <span style="color:#66d9ef">then</span>
-		<span style="color:#66d9ef">return</span> string.rep(<span style="color:#e6db74">&#34;@&#34;</span>, len)  
-	<span style="color:#66d9ef">end</span>  
-	<span style="color:#66d9ef">local</span> origin_map <span style="color:#f92672">=</span> string.rep(<span style="color:#e6db74">&#34;0&#34;</span>, len)  
+<pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#268bd2">function</span> <span style="color:#268bd2">lay_mine</span>(width, height, number)
+	<span style="color:#268bd2">local</span> len <span style="color:#719e07">=</span> width <span style="color:#719e07">*</span> height
+	<span style="color:#268bd2">if</span> number <span style="color:#719e07">&gt;</span> len <span style="color:#268bd2">then</span>
+		<span style="color:#268bd2">return</span> string.rep(<span style="color:#2aa198">&#34;@&#34;</span>, len)  
+	<span style="color:#268bd2">end</span>  
+	<span style="color:#268bd2">local</span> origin_map <span style="color:#719e07">=</span> string.rep(<span style="color:#2aa198">&#34;0&#34;</span>, len)  
 	math.randomseed(os.time())  
-	<span style="color:#66d9ef">while</span> <span style="color:#66d9ef">true</span> <span style="color:#66d9ef">do</span>  
-		<span style="color:#66d9ef">local</span> pos <span style="color:#f92672">=</span> math.random(len)  
-		<span style="color:#66d9ef">if</span> pos <span style="color:#f92672">==</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">then</span>  
-			origin_map <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;@&#34;</span> <span style="color:#f92672">..</span> string.sub(origin_map, <span style="color:#ae81ff">2</span>, len)  
-		<span style="color:#66d9ef">elseif</span> pos <span style="color:#f92672">==</span> len <span style="color:#66d9ef">then</span>  
-			origin_map <span style="color:#f92672">=</span> string.sub(origin_map, <span style="color:#ae81ff">1</span>, len <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">..</span> <span style="color:#e6db74">&#34;@&#34;</span>  
-		<span style="color:#66d9ef">else</span>  
-			origin_map <span style="color:#f92672">=</span> string.sub(origin_map, <span style="color:#ae81ff">1</span>, pos <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">..</span>  
-			<span style="color:#e6db74">&#34;@&#34;</span> <span style="color:#f92672">..</span>  
-			string.sub(origin_map, pos <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, len)  
-		<span style="color:#66d9ef">end</span>  
-		count <span style="color:#f92672">=</span> select(<span style="color:#ae81ff">2</span>, string.gsub(origin_map, <span style="color:#e6db74">&#34;@&#34;</span>, <span style="color:#e6db74">&#34;@&#34;</span>))  
-		<span style="color:#66d9ef">if</span> count <span style="color:#f92672">==</span> number <span style="color:#66d9ef">then</span>  <span style="color:#66d9ef">break</span> <span style="color:#66d9ef">end</span>  
-	<span style="color:#66d9ef">end</span>  
-	origin_map <span style="color:#f92672">=</span> take_count_of_mine(origin_map, width)  
-	<span style="color:#66d9ef">return</span> origin_map  
-<span style="color:#66d9ef">end</span>  </code></pre></td></tr></table>
+	<span style="color:#268bd2">while</span> <span style="color:#cb4b16">true</span> <span style="color:#268bd2">do</span>  
+		<span style="color:#268bd2">local</span> pos <span style="color:#719e07">=</span> math.random(len)  
+		<span style="color:#268bd2">if</span> pos <span style="color:#719e07">==</span> <span style="color:#2aa198">1</span> <span style="color:#268bd2">then</span>  
+			origin_map <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;@&#34;</span> <span style="color:#719e07">..</span> string.sub(origin_map, <span style="color:#2aa198">2</span>, len)  
+		<span style="color:#268bd2">elseif</span> pos <span style="color:#719e07">==</span> len <span style="color:#268bd2">then</span>  
+			origin_map <span style="color:#719e07">=</span> string.sub(origin_map, <span style="color:#2aa198">1</span>, len <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>) <span style="color:#719e07">..</span> <span style="color:#2aa198">&#34;@&#34;</span>  
+		<span style="color:#268bd2">else</span>  
+			origin_map <span style="color:#719e07">=</span> string.sub(origin_map, <span style="color:#2aa198">1</span>, pos <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>) <span style="color:#719e07">..</span>  
+			<span style="color:#2aa198">&#34;@&#34;</span> <span style="color:#719e07">..</span>  
+			string.sub(origin_map, pos <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>, len)  
+		<span style="color:#268bd2">end</span>  
+		count <span style="color:#719e07">=</span> select(<span style="color:#2aa198">2</span>, string.gsub(origin_map, <span style="color:#2aa198">&#34;@&#34;</span>, <span style="color:#2aa198">&#34;@&#34;</span>))  
+		<span style="color:#268bd2">if</span> count <span style="color:#719e07">==</span> number <span style="color:#268bd2">then</span>  <span style="color:#268bd2">break</span> <span style="color:#268bd2">end</span>  
+	<span style="color:#268bd2">end</span>  
+	origin_map <span style="color:#719e07">=</span> take_count_of_mine(origin_map, width)  
+	<span style="color:#268bd2">return</span> origin_map  
+<span style="color:#268bd2">end</span>  </code></pre></td></tr></table>
 </div>
 </div>
 <p>佈置好地雷之後，還需要計算與地雷相鄰區域的數字。這個算法很簡單，既可以依次查找空白區域，計算周圍 8 個區域中地雷的數量，也可以反過來，依次查找地雷區域，將周圍八個區域的字元加 1。考慮到一般地圖中地雷的數量是遠少於空白區域的，我採取第二種計算方法。按照上，下，左，右，左上，左下，右下，右上的順序把周圍區域的字元值加 1。如果超出地圖邊界的話，就跳過。</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<div class="highlight"><div style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">33
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">34
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">35
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">36
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">37
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">38
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">39
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">40
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">41
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">42
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">43
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">44
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">45
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">46
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">47
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">48
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">49
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">50
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">51
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">52
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">53
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">54
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">55
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">56
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">57
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">58
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">59
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">60
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">61
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">62
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">63
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">64
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">65
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">66
+<pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">32
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">33
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">34
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">35
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">36
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">37
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">38
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">39
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">40
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">41
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">42
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">43
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">44
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">45
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">46
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">47
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">48
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">49
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">50
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">51
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">52
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">53
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">54
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">55
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">56
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">57
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">58
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">59
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">60
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">61
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">62
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">63
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">64
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">65
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">66
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">take_count_of_mine</span>(origin_map, width)  
-	<span style="color:#66d9ef">local</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>  
-	<span style="color:#66d9ef">while</span> <span style="color:#66d9ef">true</span> <span style="color:#66d9ef">do</span>   
-		i <span style="color:#f92672">=</span> string.find(origin_map, <span style="color:#e6db74">&#34;[%u@]&#34;</span>, i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)  
-		<span style="color:#66d9ef">if</span> i <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">then</span> <span style="color:#66d9ef">break</span> <span style="color:#66d9ef">end</span>  
-		<span style="color:#66d9ef">if</span> (i <span style="color:#f92672">-</span> width <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">then</span>  
-			<span style="color:#66d9ef">local</span> prefix <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>  
-			<span style="color:#66d9ef">local</span> postfix <span style="color:#f92672">=</span> string.sub(origin_map, i <span style="color:#f92672">-</span> width, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)  
-			postfix <span style="color:#f92672">=</span> string.gsub(postfix, <span style="color:#e6db74">&#34;[%d@%u]&#34;</span>, string.char(<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> string.byte(postfix)), <span style="color:#ae81ff">1</span>)  
-			<span style="color:#66d9ef">if</span> (i <span style="color:#f92672">-</span> width <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">then</span>  
-				prefix <span style="color:#f92672">=</span> string.sub(origin_map, <span style="color:#ae81ff">1</span>, i <span style="color:#f92672">-</span> width <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)  
-			<span style="color:#66d9ef">end</span>  
-			origin_map <span style="color:#f92672">=</span> prefix <span style="color:#f92672">..</span> postfix  
-		<span style="color:#66d9ef">end</span>  
-		<span style="color:#66d9ef">if</span> (i <span style="color:#f92672">+</span> width <span style="color:#f92672">&lt;</span> <span style="color:#f92672">#</span>origin_map <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">then</span>  
-			<span style="color:#66d9ef">local</span> prefix <span style="color:#f92672">=</span> string.sub(origin_map, <span style="color:#ae81ff">1</span>, i <span style="color:#f92672">+</span> width <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)  
-			<span style="color:#66d9ef">local</span> postfix <span style="color:#f92672">=</span> string.sub(origin_map, i <span style="color:#f92672">+</span> width, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)  
-			postfix <span style="color:#f92672">=</span> string.gsub(postfix, <span style="color:#e6db74">&#34;[%d@%u]&#34;</span>, string.char(<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> string.byte(postfix)), <span style="color:#ae81ff">1</span>)  
-			origin_map <span style="color:#f92672">=</span> prefix <span style="color:#f92672">..</span> postfix  
-		<span style="color:#66d9ef">end</span>  
-		<span style="color:#66d9ef">if</span> (i <span style="color:#f92672">%</span> width <span style="color:#f92672">~=</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">then</span>  
-			<span style="color:#66d9ef">local</span> prefix <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>  
-			<span style="color:#66d9ef">local</span> postfix <span style="color:#f92672">=</span> string.sub(origin_map, i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)  
-			postfix <span style="color:#f92672">=</span> string.gsub(postfix, <span style="color:#e6db74">&#34;[%d@%u]&#34;</span>, string.char(<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> string.byte(postfix)), <span style="color:#ae81ff">1</span>)  
-			<span style="color:#66d9ef">if</span> i <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span> <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">then</span>  
-				prefix <span style="color:#f92672">=</span> string.sub(origin_map, <span style="color:#ae81ff">1</span>, i <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>)  
-			<span style="color:#66d9ef">end</span>  
-			origin_map <span style="color:#f92672">=</span> prefix <span style="color:#f92672">..</span> postfix  
-		<span style="color:#66d9ef">end</span>  
-		<span style="color:#66d9ef">if</span> (i <span style="color:#f92672">%</span> width <span style="color:#f92672">~=</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">then</span>  
-			<span style="color:#66d9ef">local</span> prefix <span style="color:#f92672">=</span> string.sub(origin_map, <span style="color:#ae81ff">1</span>, i)  
-			<span style="color:#66d9ef">local</span> postfix <span style="color:#f92672">=</span> string.sub(origin_map, i <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)  
-			postfix <span style="color:#f92672">=</span> string.gsub(postfix, <span style="color:#e6db74">&#34;[%d@%u]&#34;</span>, string.char(<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> string.byte(postfix)), <span style="color:#ae81ff">1</span>)  
-			origin_map <span style="color:#f92672">=</span> prefix <span style="color:#f92672">..</span> postfix  
-		<span style="color:#66d9ef">end</span>  
-		<span style="color:#66d9ef">if</span> ((i <span style="color:#f92672">-</span> width <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">and</span> (i <span style="color:#f92672">%</span> width <span style="color:#f92672">~=</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">then</span>  
-			<span style="color:#66d9ef">local</span> prefix <span style="color:#f92672">=</span> <span style="color:#e6db74">&#34;&#34;</span>  
-			<span style="color:#66d9ef">local</span> postfix <span style="color:#f92672">=</span> string.sub(origin_map, i <span style="color:#f92672">-</span> width <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)  
-			postfix <span style="color:#f92672">=</span> string.gsub(postfix, <span style="color:#e6db74">&#34;[%d@%u]&#34;</span>, string.char(<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> string.byte(postfix)), <span style="color:#ae81ff">1</span>)  
-			<span style="color:#66d9ef">if</span> (i <span style="color:#f92672">-</span> width <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">then</span>  
-				prefix <span style="color:#f92672">=</span> string.sub(origin_map, <span style="color:#ae81ff">1</span>, i <span style="color:#f92672">-</span> width <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>)  
-			<span style="color:#66d9ef">end</span>  
-			origin_map <span style="color:#f92672">=</span> prefix <span style="color:#f92672">..</span> postfix  
-		<span style="color:#66d9ef">end</span>  
-		<span style="color:#66d9ef">if</span> ((i <span style="color:#f92672">+</span> width <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">&lt;</span> <span style="color:#f92672">#</span>origin_map) <span style="color:#f92672">and</span> (i <span style="color:#f92672">%</span> width <span style="color:#f92672">~=</span> <span style="color:#ae81ff">1</span>) <span style="color:#66d9ef">then</span>  
-			<span style="color:#66d9ef">local</span> prefix <span style="color:#f92672">=</span> string.sub(origin_map, <span style="color:#ae81ff">1</span>, i <span style="color:#f92672">+</span> width <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>)  
-			<span style="color:#66d9ef">local</span> postfix <span style="color:#f92672">=</span> string.sub(origin_map, i <span style="color:#f92672">+</span> width <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)  
-			postfix <span style="color:#f92672">=</span> string.gsub(postfix, <span style="color:#e6db74">&#34;[%d@%u]&#34;</span>, string.char(<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> string.byte(postfix)), <span style="color:#ae81ff">1</span>)  
-			origin_map <span style="color:#f92672">=</span> prefix <span style="color:#f92672">..</span> postfix  
-		<span style="color:#66d9ef">end</span>  
-		<span style="color:#66d9ef">if</span> ((i <span style="color:#f92672">+</span> width <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">&lt;</span> (<span style="color:#f92672">#</span>origin_map <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)) <span style="color:#f92672">and</span> (i <span style="color:#f92672">%</span> width <span style="color:#f92672">~=</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">then</span>  
-			<span style="color:#66d9ef">local</span> prefix <span style="color:#f92672">=</span> string.sub(origin_map, <span style="color:#ae81ff">1</span>, i <span style="color:#f92672">+</span> width)  
-			<span style="color:#66d9ef">local</span> postfix <span style="color:#f92672">=</span> string.sub(origin_map, i <span style="color:#f92672">+</span> width <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)  
-			postfix <span style="color:#f92672">=</span> string.gsub(postfix, <span style="color:#e6db74">&#34;[%d@%u]&#34;</span>, string.char(<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> string.byte(postfix)), <span style="color:#ae81ff">1</span>)  
-			origin_map <span style="color:#f92672">=</span> prefix <span style="color:#f92672">..</span> postfix  
-		<span style="color:#66d9ef">end</span>  
-		<span style="color:#66d9ef">if</span> ((i <span style="color:#f92672">-</span> width <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span>) <span style="color:#f92672">and</span> (i <span style="color:#f92672">%</span> width <span style="color:#f92672">~=</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">then</span>  
-			<span style="color:#66d9ef">local</span> prefix <span style="color:#f92672">=</span> string.sub(origin_map, <span style="color:#ae81ff">1</span>, i <span style="color:#f92672">-</span> width)  
-			<span style="color:#66d9ef">local</span> postfix <span style="color:#f92672">=</span> string.sub(origin_map, i <span style="color:#f92672">-</span> width <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)  
-			postfix <span style="color:#f92672">=</span> string.gsub(postfix, <span style="color:#e6db74">&#34;[%d@%u]&#34;</span>, string.char(<span style="color:#ae81ff">1</span> <span style="color:#f92672">+</span> string.byte(postfix)), <span style="color:#ae81ff">1</span>)  
-			origin_map <span style="color:#f92672">=</span> prefix <span style="color:#f92672">..</span> postfix  
-		<span style="color:#66d9ef">end</span>  
-	<span style="color:#66d9ef">end</span> 
-	origin_map <span style="color:#f92672">=</span> string.gsub(origin_map, <span style="color:#e6db74">&#34;[%u]&#34;</span>, <span style="color:#e6db74">&#34;@&#34;</span>)  
-	<span style="color:#66d9ef">return</span> origin_map  
-<span style="color:#66d9ef">end</span>  </code></pre></td></tr></table>
+<pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#268bd2">function</span> <span style="color:#268bd2">take_count_of_mine</span>(origin_map, width)  
+	<span style="color:#268bd2">local</span> i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>  
+	<span style="color:#268bd2">while</span> <span style="color:#cb4b16">true</span> <span style="color:#268bd2">do</span>   
+		i <span style="color:#719e07">=</span> string.find(origin_map, <span style="color:#2aa198">&#34;[%u@]&#34;</span>, i <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>)  
+		<span style="color:#268bd2">if</span> i <span style="color:#719e07">==</span> <span style="color:#cb4b16">nil</span> <span style="color:#268bd2">then</span> <span style="color:#268bd2">break</span> <span style="color:#268bd2">end</span>  
+		<span style="color:#268bd2">if</span> (i <span style="color:#719e07">-</span> width <span style="color:#719e07">&gt;</span> <span style="color:#2aa198">0</span>) <span style="color:#268bd2">then</span>  
+			<span style="color:#268bd2">local</span> prefix <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;&#34;</span>  
+			<span style="color:#268bd2">local</span> postfix <span style="color:#719e07">=</span> string.sub(origin_map, i <span style="color:#719e07">-</span> width, <span style="color:#719e07">-</span><span style="color:#2aa198">1</span>)  
+			postfix <span style="color:#719e07">=</span> string.gsub(postfix, <span style="color:#2aa198">&#34;[%d@%u]&#34;</span>, string.char(<span style="color:#2aa198">1</span> <span style="color:#719e07">+</span> string.byte(postfix)), <span style="color:#2aa198">1</span>)  
+			<span style="color:#268bd2">if</span> (i <span style="color:#719e07">-</span> width <span style="color:#719e07">&gt;</span> <span style="color:#2aa198">1</span>) <span style="color:#268bd2">then</span>  
+				prefix <span style="color:#719e07">=</span> string.sub(origin_map, <span style="color:#2aa198">1</span>, i <span style="color:#719e07">-</span> width <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>)  
+			<span style="color:#268bd2">end</span>  
+			origin_map <span style="color:#719e07">=</span> prefix <span style="color:#719e07">..</span> postfix  
+		<span style="color:#268bd2">end</span>  
+		<span style="color:#268bd2">if</span> (i <span style="color:#719e07">+</span> width <span style="color:#719e07">&lt;</span> <span style="color:#719e07">#</span>origin_map <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>) <span style="color:#268bd2">then</span>  
+			<span style="color:#268bd2">local</span> prefix <span style="color:#719e07">=</span> string.sub(origin_map, <span style="color:#2aa198">1</span>, i <span style="color:#719e07">+</span> width <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>)  
+			<span style="color:#268bd2">local</span> postfix <span style="color:#719e07">=</span> string.sub(origin_map, i <span style="color:#719e07">+</span> width, <span style="color:#719e07">-</span><span style="color:#2aa198">1</span>)  
+			postfix <span style="color:#719e07">=</span> string.gsub(postfix, <span style="color:#2aa198">&#34;[%d@%u]&#34;</span>, string.char(<span style="color:#2aa198">1</span> <span style="color:#719e07">+</span> string.byte(postfix)), <span style="color:#2aa198">1</span>)  
+			origin_map <span style="color:#719e07">=</span> prefix <span style="color:#719e07">..</span> postfix  
+		<span style="color:#268bd2">end</span>  
+		<span style="color:#268bd2">if</span> (i <span style="color:#719e07">%</span> width <span style="color:#719e07">~=</span> <span style="color:#2aa198">1</span>) <span style="color:#268bd2">then</span>  
+			<span style="color:#268bd2">local</span> prefix <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;&#34;</span>  
+			<span style="color:#268bd2">local</span> postfix <span style="color:#719e07">=</span> string.sub(origin_map, i <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>, <span style="color:#719e07">-</span><span style="color:#2aa198">1</span>)  
+			postfix <span style="color:#719e07">=</span> string.gsub(postfix, <span style="color:#2aa198">&#34;[%d@%u]&#34;</span>, string.char(<span style="color:#2aa198">1</span> <span style="color:#719e07">+</span> string.byte(postfix)), <span style="color:#2aa198">1</span>)  
+			<span style="color:#268bd2">if</span> i <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span> <span style="color:#719e07">&gt;</span> <span style="color:#2aa198">1</span> <span style="color:#268bd2">then</span>  
+				prefix <span style="color:#719e07">=</span> string.sub(origin_map, <span style="color:#2aa198">1</span>, i <span style="color:#719e07">-</span> <span style="color:#2aa198">2</span>)  
+			<span style="color:#268bd2">end</span>  
+			origin_map <span style="color:#719e07">=</span> prefix <span style="color:#719e07">..</span> postfix  
+		<span style="color:#268bd2">end</span>  
+		<span style="color:#268bd2">if</span> (i <span style="color:#719e07">%</span> width <span style="color:#719e07">~=</span> <span style="color:#2aa198">0</span>) <span style="color:#268bd2">then</span>  
+			<span style="color:#268bd2">local</span> prefix <span style="color:#719e07">=</span> string.sub(origin_map, <span style="color:#2aa198">1</span>, i)  
+			<span style="color:#268bd2">local</span> postfix <span style="color:#719e07">=</span> string.sub(origin_map, i <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>, <span style="color:#719e07">-</span><span style="color:#2aa198">1</span>)  
+			postfix <span style="color:#719e07">=</span> string.gsub(postfix, <span style="color:#2aa198">&#34;[%d@%u]&#34;</span>, string.char(<span style="color:#2aa198">1</span> <span style="color:#719e07">+</span> string.byte(postfix)), <span style="color:#2aa198">1</span>)  
+			origin_map <span style="color:#719e07">=</span> prefix <span style="color:#719e07">..</span> postfix  
+		<span style="color:#268bd2">end</span>  
+		<span style="color:#268bd2">if</span> ((i <span style="color:#719e07">-</span> width <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>) <span style="color:#719e07">&gt;</span> <span style="color:#2aa198">0</span>) <span style="color:#719e07">and</span> (i <span style="color:#719e07">%</span> width <span style="color:#719e07">~=</span> <span style="color:#2aa198">1</span>) <span style="color:#268bd2">then</span>  
+			<span style="color:#268bd2">local</span> prefix <span style="color:#719e07">=</span> <span style="color:#2aa198">&#34;&#34;</span>  
+			<span style="color:#268bd2">local</span> postfix <span style="color:#719e07">=</span> string.sub(origin_map, i <span style="color:#719e07">-</span> width <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>, <span style="color:#719e07">-</span><span style="color:#2aa198">1</span>)  
+			postfix <span style="color:#719e07">=</span> string.gsub(postfix, <span style="color:#2aa198">&#34;[%d@%u]&#34;</span>, string.char(<span style="color:#2aa198">1</span> <span style="color:#719e07">+</span> string.byte(postfix)), <span style="color:#2aa198">1</span>)  
+			<span style="color:#268bd2">if</span> (i <span style="color:#719e07">-</span> width <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>) <span style="color:#719e07">&gt;</span> <span style="color:#2aa198">1</span> <span style="color:#268bd2">then</span>  
+				prefix <span style="color:#719e07">=</span> string.sub(origin_map, <span style="color:#2aa198">1</span>, i <span style="color:#719e07">-</span> width <span style="color:#719e07">-</span> <span style="color:#2aa198">2</span>)  
+			<span style="color:#268bd2">end</span>  
+			origin_map <span style="color:#719e07">=</span> prefix <span style="color:#719e07">..</span> postfix  
+		<span style="color:#268bd2">end</span>  
+		<span style="color:#268bd2">if</span> ((i <span style="color:#719e07">+</span> width <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>) <span style="color:#719e07">&lt;</span> <span style="color:#719e07">#</span>origin_map) <span style="color:#719e07">and</span> (i <span style="color:#719e07">%</span> width <span style="color:#719e07">~=</span> <span style="color:#2aa198">1</span>) <span style="color:#268bd2">then</span>  
+			<span style="color:#268bd2">local</span> prefix <span style="color:#719e07">=</span> string.sub(origin_map, <span style="color:#2aa198">1</span>, i <span style="color:#719e07">+</span> width <span style="color:#719e07">-</span> <span style="color:#2aa198">2</span>)  
+			<span style="color:#268bd2">local</span> postfix <span style="color:#719e07">=</span> string.sub(origin_map, i <span style="color:#719e07">+</span> width <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>, <span style="color:#719e07">-</span><span style="color:#2aa198">1</span>)  
+			postfix <span style="color:#719e07">=</span> string.gsub(postfix, <span style="color:#2aa198">&#34;[%d@%u]&#34;</span>, string.char(<span style="color:#2aa198">1</span> <span style="color:#719e07">+</span> string.byte(postfix)), <span style="color:#2aa198">1</span>)  
+			origin_map <span style="color:#719e07">=</span> prefix <span style="color:#719e07">..</span> postfix  
+		<span style="color:#268bd2">end</span>  
+		<span style="color:#268bd2">if</span> ((i <span style="color:#719e07">+</span> width <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>) <span style="color:#719e07">&lt;</span> (<span style="color:#719e07">#</span>origin_map <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>)) <span style="color:#719e07">and</span> (i <span style="color:#719e07">%</span> width <span style="color:#719e07">~=</span> <span style="color:#2aa198">0</span>) <span style="color:#268bd2">then</span>  
+			<span style="color:#268bd2">local</span> prefix <span style="color:#719e07">=</span> string.sub(origin_map, <span style="color:#2aa198">1</span>, i <span style="color:#719e07">+</span> width)  
+			<span style="color:#268bd2">local</span> postfix <span style="color:#719e07">=</span> string.sub(origin_map, i <span style="color:#719e07">+</span> width <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>, <span style="color:#719e07">-</span><span style="color:#2aa198">1</span>)  
+			postfix <span style="color:#719e07">=</span> string.gsub(postfix, <span style="color:#2aa198">&#34;[%d@%u]&#34;</span>, string.char(<span style="color:#2aa198">1</span> <span style="color:#719e07">+</span> string.byte(postfix)), <span style="color:#2aa198">1</span>)  
+			origin_map <span style="color:#719e07">=</span> prefix <span style="color:#719e07">..</span> postfix  
+		<span style="color:#268bd2">end</span>  
+		<span style="color:#268bd2">if</span> ((i <span style="color:#719e07">-</span> width <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>) <span style="color:#719e07">&gt;</span> <span style="color:#2aa198">0</span>) <span style="color:#719e07">and</span> (i <span style="color:#719e07">%</span> width <span style="color:#719e07">~=</span> <span style="color:#2aa198">0</span>) <span style="color:#268bd2">then</span>  
+			<span style="color:#268bd2">local</span> prefix <span style="color:#719e07">=</span> string.sub(origin_map, <span style="color:#2aa198">1</span>, i <span style="color:#719e07">-</span> width)  
+			<span style="color:#268bd2">local</span> postfix <span style="color:#719e07">=</span> string.sub(origin_map, i <span style="color:#719e07">-</span> width <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>, <span style="color:#719e07">-</span><span style="color:#2aa198">1</span>)  
+			postfix <span style="color:#719e07">=</span> string.gsub(postfix, <span style="color:#2aa198">&#34;[%d@%u]&#34;</span>, string.char(<span style="color:#2aa198">1</span> <span style="color:#719e07">+</span> string.byte(postfix)), <span style="color:#2aa198">1</span>)  
+			origin_map <span style="color:#719e07">=</span> prefix <span style="color:#719e07">..</span> postfix  
+		<span style="color:#268bd2">end</span>  
+	<span style="color:#268bd2">end</span> 
+	origin_map <span style="color:#719e07">=</span> string.gsub(origin_map, <span style="color:#2aa198">&#34;[%u]&#34;</span>, <span style="color:#2aa198">&#34;@&#34;</span>)  
+	<span style="color:#268bd2">return</span> origin_map  
+<span style="color:#268bd2">end</span>  </code></pre></td></tr></table>
 </div>
 </div>
 <p>代碼比較長，其實算法很簡單。使用 Lua 的字元查找函數，依次查找地雷的位置，使用模式 &ldquo;[%u@]&rdquo; 進行匹配。模式 &ldquo;[%u@]&rdquo; 的含義是大寫字母或者 &ldquo;@&quot;，每當找到一顆地雷，就把周圍區域的字元值加 1。由於地雷周圍的區域中也可能存在地雷，加 1 之後，&quot;@&rdquo; 就會變成大寫字母，這也正是選擇 &ldquo;@&rdquo; 來表示地雷的原因，如此就可以方便的使用模式 &ldquo;[%u@]&rdquo; 來匹配字元。<br>
@@ -343,315 +344,315 @@
 <p>在我的每一次航行中，我都會到達許多未知的海域。為了能夠探索到地球上全部的海域，我決定按照緯度，從零度經線開始向東行駛。每當完成一次環球旅行，我便向南行駛，到達一片新海域，然後繼續從零度經線向東行駛，周而複始，直到探索完全部的海域，繪製一張精確的航海圖，我的目的就達到了。</p>
 <p>繪製一副精確的航海圖是一件十分困難的事情，因為海洋是巨大而神秘的，而我們人類只是滄海一粟，為了將未知的海域逐一探索，首先，我要按照緯度，把海洋分成不同的海域。同一緯度上，連續不斷的一片水域，我都把它們作為同一片海域對待。隨著旅程不斷增加，也許我會發現不同緯度的海域之間，它們在某一條或者多條經度線上，海水是互相連接著的，兩片海域彷彿有海峽相連，這樣，我就可以把這些水域在海圖上全部劃入相同的海域。最後，當我完成了全球探險之旅，我就可以知道，為陸地所包圍著的海洋，或者說被海洋所包圍著的陸地，究竟是什麼樣子的。某一片海洋，它的海面分佈是從北緯多少，到南緯多少，從西經多少，到東經多少，我都會航海圖上詳細標明，一目瞭然。當有人想知道某一個經緯度已知的位置位於哪一片海洋，我就可以查看繪製好的航海圖後，明確無誤地告訴他了。</p>
 <p>首先，我必須在海圖上把相連的海域全部連成一片：</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<div class="highlight"><div style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
+<pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">25
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">classfy_sea_area</span>(origin_map, current_map, width)  
-	<span style="color:#66d9ef">local</span> uncharted_water <span style="color:#f92672">=</span> split_sea_area(origin_map, current_map, width)  
-	<span style="color:#66d9ef">local</span> new_horizon <span style="color:#f92672">=</span> {}  
-	<span style="color:#66d9ef">while</span> <span style="color:#f92672">#</span>uncharted_water <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">do</span>  
-		<span style="color:#66d9ef">local</span> u_w <span style="color:#f92672">=</span> {}  
-		<span style="color:#66d9ef">local</span> sea_area <span style="color:#f92672">=</span> uncharted_water[<span style="color:#ae81ff">1</span>]  
-		<span style="color:#66d9ef">for</span> i, v <span style="color:#66d9ef">in</span> ipairs(uncharted_water) <span style="color:#66d9ef">do</span>  
-			<span style="color:#66d9ef">if</span> i <span style="color:#f92672">&gt;</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">then</span>  
-				<span style="color:#66d9ef">local</span> n_h <span style="color:#f92672">=</span> has_strait_between(sea_area, v, width)  
-				<span style="color:#66d9ef">if</span> n_h <span style="color:#66d9ef">then</span>  
-					sea_area <span style="color:#f92672">=</span> n_h  
-				<span style="color:#66d9ef">else</span>  
-					u_w[<span style="color:#f92672">#</span>u_w <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> v  
-				<span style="color:#66d9ef">end</span>  
-			<span style="color:#66d9ef">end</span>  
-		<span style="color:#66d9ef">end</span>  
-		<span style="color:#66d9ef">if</span> <span style="color:#f92672">#</span>sea_area <span style="color:#f92672">==</span> <span style="color:#f92672">#</span>uncharted_water[<span style="color:#ae81ff">1</span>] <span style="color:#66d9ef">then</span>  
-			new_horizon[<span style="color:#f92672">#</span>new_horizon <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> sea_area  
-		<span style="color:#66d9ef">else</span>  
-			u_w[<span style="color:#f92672">#</span>u_w <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> sea_area  
-		<span style="color:#66d9ef">end</span>  
-		uncharted_water <span style="color:#f92672">=</span> u_w   
-	<span style="color:#66d9ef">end</span>  
-	<span style="color:#66d9ef">return</span> new_horizon   
-<span style="color:#66d9ef">end</span>  </code></pre></td></tr></table>
+<pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#268bd2">function</span> <span style="color:#268bd2">classfy_sea_area</span>(origin_map, current_map, width)  
+	<span style="color:#268bd2">local</span> uncharted_water <span style="color:#719e07">=</span> split_sea_area(origin_map, current_map, width)  
+	<span style="color:#268bd2">local</span> new_horizon <span style="color:#719e07">=</span> {}  
+	<span style="color:#268bd2">while</span> <span style="color:#719e07">#</span>uncharted_water <span style="color:#719e07">&gt;</span> <span style="color:#2aa198">0</span> <span style="color:#268bd2">do</span>  
+		<span style="color:#268bd2">local</span> u_w <span style="color:#719e07">=</span> {}  
+		<span style="color:#268bd2">local</span> sea_area <span style="color:#719e07">=</span> uncharted_water[<span style="color:#2aa198">1</span>]  
+		<span style="color:#268bd2">for</span> i, v <span style="color:#268bd2">in</span> ipairs(uncharted_water) <span style="color:#268bd2">do</span>  
+			<span style="color:#268bd2">if</span> i <span style="color:#719e07">&gt;</span> <span style="color:#2aa198">1</span> <span style="color:#268bd2">then</span>  
+				<span style="color:#268bd2">local</span> n_h <span style="color:#719e07">=</span> has_strait_between(sea_area, v, width)  
+				<span style="color:#268bd2">if</span> n_h <span style="color:#268bd2">then</span>  
+					sea_area <span style="color:#719e07">=</span> n_h  
+				<span style="color:#268bd2">else</span>  
+					u_w[<span style="color:#719e07">#</span>u_w <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>] <span style="color:#719e07">=</span> v  
+				<span style="color:#268bd2">end</span>  
+			<span style="color:#268bd2">end</span>  
+		<span style="color:#268bd2">end</span>  
+		<span style="color:#268bd2">if</span> <span style="color:#719e07">#</span>sea_area <span style="color:#719e07">==</span> <span style="color:#719e07">#</span>uncharted_water[<span style="color:#2aa198">1</span>] <span style="color:#268bd2">then</span>  
+			new_horizon[<span style="color:#719e07">#</span>new_horizon <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>] <span style="color:#719e07">=</span> sea_area  
+		<span style="color:#268bd2">else</span>  
+			u_w[<span style="color:#719e07">#</span>u_w <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>] <span style="color:#719e07">=</span> sea_area  
+		<span style="color:#268bd2">end</span>  
+		uncharted_water <span style="color:#719e07">=</span> u_w   
+	<span style="color:#268bd2">end</span>  
+	<span style="color:#268bd2">return</span> new_horizon   
+<span style="color:#268bd2">end</span>  </code></pre></td></tr></table>
 </div>
 </div>
 <p>這樣來劃分海域：</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<div class="highlight"><div style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">25
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">26
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">27
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">28
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">29
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">30
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">31
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">32
+<pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">24
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">25
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">26
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">27
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">28
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">29
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">30
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">31
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">32
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">split_sea_area</span>(origin_map, current_map, width)  
-	<span style="color:#66d9ef">local</span> col <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>  
-	<span style="color:#66d9ef">local</span> t3 <span style="color:#f92672">=</span> {}  
-	<span style="color:#66d9ef">while</span> <span style="color:#66d9ef">true</span> <span style="color:#66d9ef">do</span>  
-		<span style="color:#66d9ef">local</span> s1 <span style="color:#f92672">=</span> string.sub(origin_map, col, col <span style="color:#f92672">+</span> width <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)  
-		<span style="color:#66d9ef">local</span> s2 <span style="color:#f92672">=</span> string.sub(current_map, col, col <span style="color:#f92672">+</span> width <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>)  
-		<span style="color:#66d9ef">local</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>  
-		<span style="color:#66d9ef">local</span> j <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>  
-		<span style="color:#66d9ef">while</span> <span style="color:#66d9ef">true</span> <span style="color:#66d9ef">do</span>  
-			i, j <span style="color:#f92672">=</span> string.find(s2, <span style="color:#e6db74">&#34;?+&#34;</span>, j <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)  
-			<span style="color:#66d9ef">if</span> i <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">then</span> <span style="color:#66d9ef">break</span> <span style="color:#66d9ef">end</span>  
-			<span style="color:#66d9ef">local</span> s <span style="color:#f92672">=</span> string.sub(s1, i, j)  
-			<span style="color:#66d9ef">local</span> off1 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>  
-			<span style="color:#66d9ef">local</span> off2 <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>  
-			<span style="color:#66d9ef">while</span> <span style="color:#66d9ef">true</span> <span style="color:#66d9ef">do</span>  
-				off1, off2 <span style="color:#f92672">=</span> string.find(s, <span style="color:#e6db74">&#34;0+&#34;</span>, off2 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>)  
-				<span style="color:#66d9ef">if</span> off1 <span style="color:#f92672">==</span> <span style="color:#66d9ef">nil</span> <span style="color:#66d9ef">then</span> <span style="color:#66d9ef">break</span> <span style="color:#66d9ef">end</span>  
-				<span style="color:#66d9ef">local</span> t1 <span style="color:#f92672">=</span> {}  
-				t1[<span style="color:#f92672">#</span>t1 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> col <span style="color:#f92672">+</span> i <span style="color:#f92672">+</span> off1 <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>  
-				t1[<span style="color:#f92672">#</span>t1 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> col <span style="color:#f92672">+</span> i <span style="color:#f92672">+</span> off2 <span style="color:#f92672">-</span> <span style="color:#ae81ff">2</span>  
-				<span style="color:#66d9ef">local</span> t2 <span style="color:#f92672">=</span> {}  
-				t2[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> t1  
-				t3[<span style="color:#f92672">#</span>t3 <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> t2  
-			<span style="color:#66d9ef">end</span>  
-		<span style="color:#66d9ef">end</span>  
-		col <span style="color:#f92672">=</span> col <span style="color:#f92672">+</span> width  
-		<span style="color:#66d9ef">if</span> col <span style="color:#f92672">&gt;</span> <span style="color:#f92672">#</span>origin_map <span style="color:#66d9ef">then</span>  
-			<span style="color:#66d9ef">break</span>  
-		<span style="color:#66d9ef">end</span>  
-	<span style="color:#66d9ef">end</span>  
-	<span style="color:#66d9ef">return</span> t3  
-<span style="color:#66d9ef">end</span>  </code></pre></td></tr></table>
+<pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#268bd2">function</span> <span style="color:#268bd2">split_sea_area</span>(origin_map, current_map, width)  
+	<span style="color:#268bd2">local</span> col <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>  
+	<span style="color:#268bd2">local</span> t3 <span style="color:#719e07">=</span> {}  
+	<span style="color:#268bd2">while</span> <span style="color:#cb4b16">true</span> <span style="color:#268bd2">do</span>  
+		<span style="color:#268bd2">local</span> s1 <span style="color:#719e07">=</span> string.sub(origin_map, col, col <span style="color:#719e07">+</span> width <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>)  
+		<span style="color:#268bd2">local</span> s2 <span style="color:#719e07">=</span> string.sub(current_map, col, col <span style="color:#719e07">+</span> width <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>)  
+		<span style="color:#268bd2">local</span> i <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>  
+		<span style="color:#268bd2">local</span> j <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>  
+		<span style="color:#268bd2">while</span> <span style="color:#cb4b16">true</span> <span style="color:#268bd2">do</span>  
+			i, j <span style="color:#719e07">=</span> string.find(s2, <span style="color:#2aa198">&#34;?+&#34;</span>, j <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>)  
+			<span style="color:#268bd2">if</span> i <span style="color:#719e07">==</span> <span style="color:#cb4b16">nil</span> <span style="color:#268bd2">then</span> <span style="color:#268bd2">break</span> <span style="color:#268bd2">end</span>  
+			<span style="color:#268bd2">local</span> s <span style="color:#719e07">=</span> string.sub(s1, i, j)  
+			<span style="color:#268bd2">local</span> off1 <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>  
+			<span style="color:#268bd2">local</span> off2 <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>  
+			<span style="color:#268bd2">while</span> <span style="color:#cb4b16">true</span> <span style="color:#268bd2">do</span>  
+				off1, off2 <span style="color:#719e07">=</span> string.find(s, <span style="color:#2aa198">&#34;0+&#34;</span>, off2 <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>)  
+				<span style="color:#268bd2">if</span> off1 <span style="color:#719e07">==</span> <span style="color:#cb4b16">nil</span> <span style="color:#268bd2">then</span> <span style="color:#268bd2">break</span> <span style="color:#268bd2">end</span>  
+				<span style="color:#268bd2">local</span> t1 <span style="color:#719e07">=</span> {}  
+				t1[<span style="color:#719e07">#</span>t1 <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>] <span style="color:#719e07">=</span> col <span style="color:#719e07">+</span> i <span style="color:#719e07">+</span> off1 <span style="color:#719e07">-</span> <span style="color:#2aa198">2</span>  
+				t1[<span style="color:#719e07">#</span>t1 <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>] <span style="color:#719e07">=</span> col <span style="color:#719e07">+</span> i <span style="color:#719e07">+</span> off2 <span style="color:#719e07">-</span> <span style="color:#2aa198">2</span>  
+				<span style="color:#268bd2">local</span> t2 <span style="color:#719e07">=</span> {}  
+				t2[<span style="color:#2aa198">1</span>] <span style="color:#719e07">=</span> t1  
+				t3[<span style="color:#719e07">#</span>t3 <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>] <span style="color:#719e07">=</span> t2  
+			<span style="color:#268bd2">end</span>  
+		<span style="color:#268bd2">end</span>  
+		col <span style="color:#719e07">=</span> col <span style="color:#719e07">+</span> width  
+		<span style="color:#268bd2">if</span> col <span style="color:#719e07">&gt;</span> <span style="color:#719e07">#</span>origin_map <span style="color:#268bd2">then</span>  
+			<span style="color:#268bd2">break</span>  
+		<span style="color:#268bd2">end</span>  
+	<span style="color:#268bd2">end</span>  
+	<span style="color:#268bd2">return</span> t3  
+<span style="color:#268bd2">end</span>  </code></pre></td></tr></table>
 </div>
 </div>
 <p>兩片海域之間是否有海峽相鄰？可以這樣來判斷：</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<div class="highlight"><div style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+<pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">24
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">has_strait_between</span>(sea_area1, sea_area2, width)  
-	<span style="color:#66d9ef">for</span> i1, v1 <span style="color:#66d9ef">in</span> ipairs(sea_area1) <span style="color:#66d9ef">do</span>  
-		<span style="color:#66d9ef">for</span> i2, v2 <span style="color:#66d9ef">in</span> ipairs(sea_area2) <span style="color:#66d9ef">do</span>  
-			<span style="color:#66d9ef">local</span> min_dist1 <span style="color:#f92672">=</span> v1[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> v2[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>  
-			<span style="color:#66d9ef">local</span> max_dist1 <span style="color:#f92672">=</span> v1[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">-</span> v2[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>  
-			<span style="color:#66d9ef">local</span> min_dist2 <span style="color:#f92672">=</span> v2[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">-</span> v1[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>  
-			<span style="color:#66d9ef">local</span> max_dist2 <span style="color:#f92672">=</span> v2[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">-</span> v1[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>  
-			<span style="color:#66d9ef">if</span> min_dist1 <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">then</span>  
-				<span style="color:#66d9ef">if</span> (min_dist1 <span style="color:#f92672">&lt;</span> width <span style="color:#f92672">and</span> width <span style="color:#f92672">&lt;</span> max_dist1)   
-					<span style="color:#f92672">or</span> (min_dist1 <span style="color:#f92672">==</span> width <span style="color:#f92672">and</span> (v1[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">%</span> width) <span style="color:#f92672">~=</span> <span style="color:#ae81ff">1</span>)   
-					<span style="color:#f92672">or</span> (max_dist1 <span style="color:#f92672">==</span> width <span style="color:#f92672">and</span> (v1[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">%</span> width) <span style="color:#f92672">~=</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">then</span>  
-					<span style="color:#66d9ef">return</span> sea_area_union(sea_area1, sea_area2)  
-				<span style="color:#66d9ef">end</span>  
-			<span style="color:#66d9ef">elseif</span> min_dist2 <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">then</span>  
-				<span style="color:#66d9ef">if</span> (min_dist2 <span style="color:#f92672">&lt;</span> width <span style="color:#f92672">and</span> width <span style="color:#f92672">&lt;</span> max_dist2)   
-					<span style="color:#f92672">or</span> (min_dist2 <span style="color:#f92672">==</span> width <span style="color:#f92672">and</span> (v2[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">%</span> width) <span style="color:#f92672">~=</span> <span style="color:#ae81ff">1</span>)   
-					<span style="color:#f92672">or</span> (max_dist2 <span style="color:#f92672">==</span> width <span style="color:#f92672">and</span> (v2[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">%</span> width) <span style="color:#f92672">~=</span> <span style="color:#ae81ff">0</span>) <span style="color:#66d9ef">then</span>  
-					<span style="color:#66d9ef">return</span> sea_area_union(sea_area1, sea_area2)  
-				<span style="color:#66d9ef">end</span>  
-			<span style="color:#66d9ef">end</span>   
-		<span style="color:#66d9ef">end</span>  
-	<span style="color:#66d9ef">end</span>  
-	<span style="color:#66d9ef">return</span> <span style="color:#66d9ef">nil</span>  
-<span style="color:#66d9ef">end</span>  </code></pre></td></tr></table>
+<pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#268bd2">function</span> <span style="color:#268bd2">has_strait_between</span>(sea_area1, sea_area2, width)  
+	<span style="color:#268bd2">for</span> i1, v1 <span style="color:#268bd2">in</span> ipairs(sea_area1) <span style="color:#268bd2">do</span>  
+		<span style="color:#268bd2">for</span> i2, v2 <span style="color:#268bd2">in</span> ipairs(sea_area2) <span style="color:#268bd2">do</span>  
+			<span style="color:#268bd2">local</span> min_dist1 <span style="color:#719e07">=</span> v1[<span style="color:#2aa198">1</span>] <span style="color:#719e07">-</span> v2[<span style="color:#2aa198">2</span>] <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>  
+			<span style="color:#268bd2">local</span> max_dist1 <span style="color:#719e07">=</span> v1[<span style="color:#2aa198">2</span>] <span style="color:#719e07">-</span> v2[<span style="color:#2aa198">1</span>] <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>  
+			<span style="color:#268bd2">local</span> min_dist2 <span style="color:#719e07">=</span> v2[<span style="color:#2aa198">1</span>] <span style="color:#719e07">-</span> v1[<span style="color:#2aa198">2</span>] <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>  
+			<span style="color:#268bd2">local</span> max_dist2 <span style="color:#719e07">=</span> v2[<span style="color:#2aa198">2</span>] <span style="color:#719e07">-</span> v1[<span style="color:#2aa198">1</span>] <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>  
+			<span style="color:#268bd2">if</span> min_dist1 <span style="color:#719e07">&gt;=</span> <span style="color:#2aa198">0</span> <span style="color:#268bd2">then</span>  
+				<span style="color:#268bd2">if</span> (min_dist1 <span style="color:#719e07">&lt;</span> width <span style="color:#719e07">and</span> width <span style="color:#719e07">&lt;</span> max_dist1)   
+					<span style="color:#719e07">or</span> (min_dist1 <span style="color:#719e07">==</span> width <span style="color:#719e07">and</span> (v1[<span style="color:#2aa198">1</span>] <span style="color:#719e07">%</span> width) <span style="color:#719e07">~=</span> <span style="color:#2aa198">1</span>)   
+					<span style="color:#719e07">or</span> (max_dist1 <span style="color:#719e07">==</span> width <span style="color:#719e07">and</span> (v1[<span style="color:#2aa198">2</span>] <span style="color:#719e07">%</span> width) <span style="color:#719e07">~=</span> <span style="color:#2aa198">0</span>) <span style="color:#268bd2">then</span>  
+					<span style="color:#268bd2">return</span> sea_area_union(sea_area1, sea_area2)  
+				<span style="color:#268bd2">end</span>  
+			<span style="color:#268bd2">elseif</span> min_dist2 <span style="color:#719e07">&gt;=</span> <span style="color:#2aa198">0</span> <span style="color:#268bd2">then</span>  
+				<span style="color:#268bd2">if</span> (min_dist2 <span style="color:#719e07">&lt;</span> width <span style="color:#719e07">and</span> width <span style="color:#719e07">&lt;</span> max_dist2)   
+					<span style="color:#719e07">or</span> (min_dist2 <span style="color:#719e07">==</span> width <span style="color:#719e07">and</span> (v2[<span style="color:#2aa198">1</span>] <span style="color:#719e07">%</span> width) <span style="color:#719e07">~=</span> <span style="color:#2aa198">1</span>)   
+					<span style="color:#719e07">or</span> (max_dist2 <span style="color:#719e07">==</span> width <span style="color:#719e07">and</span> (v2[<span style="color:#2aa198">2</span>] <span style="color:#719e07">%</span> width) <span style="color:#719e07">~=</span> <span style="color:#2aa198">0</span>) <span style="color:#268bd2">then</span>  
+					<span style="color:#268bd2">return</span> sea_area_union(sea_area1, sea_area2)  
+				<span style="color:#268bd2">end</span>  
+			<span style="color:#268bd2">end</span>   
+		<span style="color:#268bd2">end</span>  
+	<span style="color:#268bd2">end</span>  
+	<span style="color:#268bd2">return</span> <span style="color:#cb4b16">nil</span>  
+<span style="color:#268bd2">end</span>  </code></pre></td></tr></table>
 </div>
 </div>
 <p>如果發現兩片海域屬於同一個海洋，那麼我需要在海圖上把兩片海域連起來：</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<div class="highlight"><div style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
+<pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">10
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">sea_area_union</span>(a, b)  
-	<span style="color:#66d9ef">local</span> c <span style="color:#f92672">=</span> {}  
-	<span style="color:#66d9ef">for</span> i,v <span style="color:#66d9ef">in</span> ipairs(a) <span style="color:#66d9ef">do</span>  
-		c[<span style="color:#f92672">#</span>c <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> v  
-	<span style="color:#66d9ef">end</span>  
-	<span style="color:#66d9ef">for</span> i,v <span style="color:#66d9ef">in</span> ipairs(b) <span style="color:#66d9ef">do</span>  
-		c[<span style="color:#f92672">#</span>c <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>] <span style="color:#f92672">=</span> v  
-	<span style="color:#66d9ef">end</span>  
-	<span style="color:#66d9ef">return</span> c  
-<span style="color:#66d9ef">end</span>  </code></pre></td></tr></table>
+<pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#268bd2">function</span> <span style="color:#268bd2">sea_area_union</span>(a, b)  
+	<span style="color:#268bd2">local</span> c <span style="color:#719e07">=</span> {}  
+	<span style="color:#268bd2">for</span> i,v <span style="color:#268bd2">in</span> ipairs(a) <span style="color:#268bd2">do</span>  
+		c[<span style="color:#719e07">#</span>c <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>] <span style="color:#719e07">=</span> v  
+	<span style="color:#268bd2">end</span>  
+	<span style="color:#268bd2">for</span> i,v <span style="color:#268bd2">in</span> ipairs(b) <span style="color:#268bd2">do</span>  
+		c[<span style="color:#719e07">#</span>c <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>] <span style="color:#719e07">=</span> v  
+	<span style="color:#268bd2">end</span>  
+	<span style="color:#268bd2">return</span> c  
+<span style="color:#268bd2">end</span>  </code></pre></td></tr></table>
 </div>
 </div>
 <p>有了各個海域的精確位置以及分佈情況，就可以根據經緯度在大海上定位了：</p>
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<div class="highlight"><div style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
+<pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">20
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">make_ocean_chart</span>(origin_map, current_map, width, position)  
-	<span style="color:#66d9ef">local</span> ocean <span style="color:#f92672">=</span> classfy_sea_area(origin_map, current_map, width)  
-	<span style="color:#66d9ef">local</span> ocean_index <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>  
-	<span style="color:#66d9ef">for</span> i1, v1 <span style="color:#66d9ef">in</span> ipairs(ocean) <span style="color:#66d9ef">do</span>  
-		<span style="color:#66d9ef">for</span> i2, v2 <span style="color:#66d9ef">in</span> ipairs(v1) <span style="color:#66d9ef">do</span>  
-			<span style="color:#66d9ef">if</span> (position <span style="color:#f92672">&gt;=</span> v2[<span style="color:#ae81ff">1</span>]) <span style="color:#f92672">and</span> (position <span style="color:#f92672">&lt;=</span> v2[<span style="color:#ae81ff">2</span>]) <span style="color:#66d9ef">then</span>  
-				ocean_index <span style="color:#f92672">=</span> i1  
-				<span style="color:#66d9ef">break</span>  
-			<span style="color:#66d9ef">end</span>  
-		<span style="color:#66d9ef">end</span>  
-	<span style="color:#66d9ef">end</span>  
-	<span style="color:#66d9ef">if</span> ocean_index <span style="color:#f92672">~=</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">then</span>  
-		<span style="color:#66d9ef">local</span> t <span style="color:#f92672">=</span> current_map  
-		<span style="color:#66d9ef">for</span> i, v <span style="color:#66d9ef">in</span> ipairs(ocean[ocean_index]) <span style="color:#66d9ef">do</span>  
-			t <span style="color:#f92672">=</span> make_coastline(origin_map, t, width, v)  
-		<span style="color:#66d9ef">end</span>  
-		<span style="color:#66d9ef">return</span> t, compare_map(current_map, t)  
-	<span style="color:#66d9ef">end</span>  
-	<span style="color:#66d9ef">return</span> current_map, <span style="color:#e6db74">&#34;&#34;</span>  
-<span style="color:#66d9ef">end</span>  </code></pre></td></tr></table>
+<pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#268bd2">function</span> <span style="color:#268bd2">make_ocean_chart</span>(origin_map, current_map, width, position)  
+	<span style="color:#268bd2">local</span> ocean <span style="color:#719e07">=</span> classfy_sea_area(origin_map, current_map, width)  
+	<span style="color:#268bd2">local</span> ocean_index <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>  
+	<span style="color:#268bd2">for</span> i1, v1 <span style="color:#268bd2">in</span> ipairs(ocean) <span style="color:#268bd2">do</span>  
+		<span style="color:#268bd2">for</span> i2, v2 <span style="color:#268bd2">in</span> ipairs(v1) <span style="color:#268bd2">do</span>  
+			<span style="color:#268bd2">if</span> (position <span style="color:#719e07">&gt;=</span> v2[<span style="color:#2aa198">1</span>]) <span style="color:#719e07">and</span> (position <span style="color:#719e07">&lt;=</span> v2[<span style="color:#2aa198">2</span>]) <span style="color:#268bd2">then</span>  
+				ocean_index <span style="color:#719e07">=</span> i1  
+				<span style="color:#268bd2">break</span>  
+			<span style="color:#268bd2">end</span>  
+		<span style="color:#268bd2">end</span>  
+	<span style="color:#268bd2">end</span>  
+	<span style="color:#268bd2">if</span> ocean_index <span style="color:#719e07">~=</span> <span style="color:#2aa198">0</span> <span style="color:#268bd2">then</span>  
+		<span style="color:#268bd2">local</span> t <span style="color:#719e07">=</span> current_map  
+		<span style="color:#268bd2">for</span> i, v <span style="color:#268bd2">in</span> ipairs(ocean[ocean_index]) <span style="color:#268bd2">do</span>  
+			t <span style="color:#719e07">=</span> make_coastline(origin_map, t, width, v)  
+		<span style="color:#268bd2">end</span>  
+		<span style="color:#268bd2">return</span> t, compare_map(current_map, t)  
+	<span style="color:#268bd2">end</span>  
+	<span style="color:#268bd2">return</span> current_map, <span style="color:#2aa198">&#34;&#34;</span>  
+<span style="color:#268bd2">end</span>  </code></pre></td></tr></table>
 </div>
 </div>
 <p>描繪大海的同時還要記得把海岸線也畫出來：
-<div class="highlight"><div style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
+<div class="highlight"><div style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4">
 <table style="border-spacing:0;padding:0;margin:0;border:0;width:auto;overflow:auto;display:block;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 1
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 2
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 3
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 4
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 5
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 6
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 7
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 8
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f"> 9
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">10
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">11
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">12
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">13
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">14
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">15
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">16
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">17
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">18
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">19
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">20
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">21
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">22
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">23
-</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#7f7f7f">24
+<pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 1
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 2
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 3
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 4
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 5
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 6
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 7
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 8
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 9
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">10
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">11
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">12
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">13
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">14
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">15
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">16
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">17
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">18
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">19
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">20
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">21
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">22
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">23
+</span><span style="margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">24
 </span></code></pre></td>
 <td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
-<pre style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#66d9ef">function</span> <span style="color:#a6e22e">make_coastline</span>(origin_map, current_map, width, sea_area)  
-	<span style="color:#66d9ef">local</span> sea_area_west <span style="color:#f92672">=</span> sea_area[<span style="color:#ae81ff">1</span>]  
-	<span style="color:#66d9ef">local</span> sea_area_east <span style="color:#f92672">=</span> sea_area[<span style="color:#ae81ff">2</span>]  
-	<span style="color:#66d9ef">if</span> sea_area[<span style="color:#ae81ff">1</span>] <span style="color:#f92672">%</span> width <span style="color:#f92672">~=</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">then</span>  
-		sea_area_west <span style="color:#f92672">=</span> sea_area_west <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>  
-	<span style="color:#66d9ef">end</span>  
-	<span style="color:#66d9ef">if</span> sea_area[<span style="color:#ae81ff">2</span>] <span style="color:#f92672">%</span> width <span style="color:#f92672">~=</span> <span style="color:#ae81ff">0</span> <span style="color:#66d9ef">then</span>  
-		sea_area_east <span style="color:#f92672">=</span> sea_area_east <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>  
-	<span style="color:#66d9ef">end</span> 
-	<span style="color:#66d9ef">if</span> sea_area_west <span style="color:#f92672">-</span> width <span style="color:#f92672">&gt;=</span> <span style="color:#ae81ff">1</span> <span style="color:#66d9ef">then</span>  
-		current_map <span style="color:#f92672">=</span> string.sub(current_map, <span style="color:#ae81ff">1</span>, sea_area_west <span style="color:#f92672">-</span> width <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">..</span>  
-		string.sub(origin_map, sea_area_west <span style="color:#f92672">-</span> width, sea_area_east <span style="color:#f92672">-</span> width) <span style="color:#f92672">..</span>  
-		string.sub(current_map, sea_area_east <span style="color:#f92672">-</span> width <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)  
-	<span style="color:#66d9ef">end</span>  
-	current_map <span style="color:#f92672">=</span> string.sub(current_map, <span style="color:#ae81ff">1</span>, sea_area_west <span style="color:#f92672">-</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">..</span>  
-	string.sub(origin_map, sea_area_west, sea_area_east) <span style="color:#f92672">..</span>  
-	string.sub(current_map, sea_area_east <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)  
-	<span style="color:#66d9ef">if</span> sea_area_east <span style="color:#f92672">+</span> width <span style="color:#f92672">&lt;=</span> <span style="color:#f92672">#</span>current_map <span style="color:#66d9ef">then</span>  
-		current_map <span style="color:#f92672">=</span> string.sub(current_map, <span style="color:#ae81ff">1</span>, sea_area_west <span style="color:#f92672">+</span> width <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>) <span style="color:#f92672">..</span>  
-		string.sub(origin_map, sea_area_west <span style="color:#f92672">+</span> width, sea_area_east <span style="color:#f92672">+</span> width) <span style="color:#f92672">..</span>  
-		string.sub(current_map, sea_area_east <span style="color:#f92672">+</span> width <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1</span>)  
-	<span style="color:#66d9ef">end</span>  
-	<span style="color:#66d9ef">return</span> current_map  
-<span style="color:#66d9ef">end</span>  </code></pre></td></tr></table>
+<pre style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4"><code class="language-lua" data-lang="lua"><span style="color:#268bd2">function</span> <span style="color:#268bd2">make_coastline</span>(origin_map, current_map, width, sea_area)  
+	<span style="color:#268bd2">local</span> sea_area_west <span style="color:#719e07">=</span> sea_area[<span style="color:#2aa198">1</span>]  
+	<span style="color:#268bd2">local</span> sea_area_east <span style="color:#719e07">=</span> sea_area[<span style="color:#2aa198">2</span>]  
+	<span style="color:#268bd2">if</span> sea_area[<span style="color:#2aa198">1</span>] <span style="color:#719e07">%</span> width <span style="color:#719e07">~=</span> <span style="color:#2aa198">1</span> <span style="color:#268bd2">then</span>  
+		sea_area_west <span style="color:#719e07">=</span> sea_area_west <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>  
+	<span style="color:#268bd2">end</span>  
+	<span style="color:#268bd2">if</span> sea_area[<span style="color:#2aa198">2</span>] <span style="color:#719e07">%</span> width <span style="color:#719e07">~=</span> <span style="color:#2aa198">0</span> <span style="color:#268bd2">then</span>  
+		sea_area_east <span style="color:#719e07">=</span> sea_area_east <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>  
+	<span style="color:#268bd2">end</span> 
+	<span style="color:#268bd2">if</span> sea_area_west <span style="color:#719e07">-</span> width <span style="color:#719e07">&gt;=</span> <span style="color:#2aa198">1</span> <span style="color:#268bd2">then</span>  
+		current_map <span style="color:#719e07">=</span> string.sub(current_map, <span style="color:#2aa198">1</span>, sea_area_west <span style="color:#719e07">-</span> width <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>) <span style="color:#719e07">..</span>  
+		string.sub(origin_map, sea_area_west <span style="color:#719e07">-</span> width, sea_area_east <span style="color:#719e07">-</span> width) <span style="color:#719e07">..</span>  
+		string.sub(current_map, sea_area_east <span style="color:#719e07">-</span> width <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>, <span style="color:#719e07">-</span><span style="color:#2aa198">1</span>)  
+	<span style="color:#268bd2">end</span>  
+	current_map <span style="color:#719e07">=</span> string.sub(current_map, <span style="color:#2aa198">1</span>, sea_area_west <span style="color:#719e07">-</span> <span style="color:#2aa198">1</span>) <span style="color:#719e07">..</span>  
+	string.sub(origin_map, sea_area_west, sea_area_east) <span style="color:#719e07">..</span>  
+	string.sub(current_map, sea_area_east <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>, <span style="color:#719e07">-</span><span style="color:#2aa198">1</span>)  
+	<span style="color:#268bd2">if</span> sea_area_east <span style="color:#719e07">+</span> width <span style="color:#719e07">&lt;=</span> <span style="color:#719e07">#</span>current_map <span style="color:#268bd2">then</span>  
+		current_map <span style="color:#719e07">=</span> string.sub(current_map, <span style="color:#2aa198">1</span>, sea_area_west <span style="color:#719e07">+</span> width <span style="color:#719e07">-</span><span style="color:#2aa198">1</span>) <span style="color:#719e07">..</span>  
+		string.sub(origin_map, sea_area_west <span style="color:#719e07">+</span> width, sea_area_east <span style="color:#719e07">+</span> width) <span style="color:#719e07">..</span>  
+		string.sub(current_map, sea_area_east <span style="color:#719e07">+</span> width <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>, <span style="color:#719e07">-</span><span style="color:#2aa198">1</span>)  
+	<span style="color:#268bd2">end</span>  
+	<span style="color:#268bd2">return</span> current_map  
+<span style="color:#268bd2">end</span>  </code></pre></td></tr></table>
 </div>
 </div></p>
 <p>至此，掃雷遊戲的算法全部描述完畢。</p>
@@ -673,6 +674,14 @@
 </section>
 
     <script src="/js/copycode.js"></script>
+
+<script src="https://utteranc.es/client.js"
+        repo="[ENTER REPO HERE]"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
 
 
 <section class="section">
