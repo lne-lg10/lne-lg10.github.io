@@ -14,8 +14,7 @@
       <pubDate>Sun, 06 Apr 2008 00:00:00 +0000</pubDate>
       
       <guid>https://lne-lg10.github.io/post/matrix_init/</guid>
-      <description>最近在 C++ 博客上看到了一段優雅的二維數組賦值代碼，學習了一下。 作者為了實現圖片中特定效果的二維數組，參考迷宮問題設計了一個優雅的算法，算法的基本思想就是對二維數組按照從外到內的方式賦值，在賦值的過程中加入了對二維數組邊界的判斷，只需要一層循環就可以實現。整個賦值過程和四衝程發動機工作原理有點類似，循環往複，各種變數之間此消彼長，代碼如下：
-1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16 17 18 19 20 21 22 23 24 25 26 27 28 29 30 31 32 33 34 35 36 37 38 39 40 41 42 43 44 45 46 47 48 49 50  constint ROW__ = 10; constint COL__ = 10; int mat[ROW__][COL__]; struct Position { int nRow; int nCol; }; int main(int argc, char* argv[]) { Position offset[4]; //从左至右，行号不变，列号加一  offset[0].</description>
+      <description>最近在 C++ 博客上看到了一段優雅的二維數組賦值代碼，學習了一下。 作者為了實現圖片中特定效果的二維數組，參考迷宮問題設計了一個優雅的算法，算法的基</description>
     </item>
     
   </channel>

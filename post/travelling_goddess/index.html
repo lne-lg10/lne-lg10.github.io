@@ -7,7 +7,7 @@
 <title>行走的藏區女神 | 荒島浮生</title>
 
 <meta property='og:title' content='行走的藏區女神 - 荒島浮生'>
-<meta property='og:description' content='今天終於遇到了一個走過八條進藏線的大神，還有幸和大神聊天。在紅柳灘明媚的陽光下，大神侃侃而談，略帶輕蔑的說著：你是第一次進藏吧，我每年都進藏，只剩這條線沒走過了。然後，大神搭上了一輛壕的車先走，輕輕地揮了揮衣袖，不帶走一片雲彩。但是，夢想總是很美好，現實總是很殘酷。下午當我和小夥伴搭車經過鬆西時，看到大神正在路邊抱著枕頭大的氧氣袋攔車。上車以後，大神有氣無力地說著：我高反很嚴重。然後跟司機要了個塑料袋開始吐。面對此情此景，我和小夥伴們只好活蹦亂跳地在多瑪下車，畢竟頭次進藏的我們沒啥經驗，無能為力。'>
+<meta property='og:description' content='今天終於遇到了一個走過八條進藏線的大神，還有幸和大神聊天。在紅柳灘明媚的陽光下，大神侃侃而談，略帶輕蔑的說著：你是第一次進藏吧，我每年都進藏'>
 <meta property='og:url' content='https://lne-lg10.github.io/post/travelling_goddess/'>
 <meta property='og:site_name' content='荒島浮生'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/4760403969723691e8b64480eee63492?s=256'><meta property='article:author' content='https://facebook.com/starrysea'><meta property='article:section' content='Post'><meta property='article:tag' content='荒唐言'><meta property='article:published_time' content='2014-09-03T00:00:00Z'><meta property='article:modified_time' content='2014-09-03T00:00:00Z'><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@shitizen'><meta name='twitter:creator' content='@shitizen'>
@@ -145,6 +145,8 @@
   <div class="container">
     <aside><div id="disqus_thread"></div></aside>
   
+    <div id="show_comments"><a id="load_comments" class="button is-link">Load comments</a></div>
+  
     <script type="text/javascript">
       var disqus_shortname = 'XgNxS6SOhu';
       function disqus() {
@@ -153,7 +155,17 @@
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
       }
   
-      disqus();
+      
+      var hash = window.location.hash.substr(1);
+      if ((hash.length > 8) && (hash.substring(0, 8) === "comment-")) {
+        disqus();
+        document.getElementById("show_comments").style.display = "none";
+      } else {
+        document.getElementById('load_comments').onclick = function() {
+          disqus();
+          document.getElementById("show_comments").style.display = "none";
+        };
+      }
   
 
     </script>

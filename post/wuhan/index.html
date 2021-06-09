@@ -7,54 +7,7 @@
 <title>武漢 | 荒島浮生</title>
 
 <meta property='og:title' content='武漢 - 荒島浮生'>
-<meta property='og:description' content='不見征戰
-卻有生靈塗炭
-封城閉戶
-一片蕭條慘淡
-人造病毒
-何人保管不善
-刻意隱瞞
-導致傳播氾濫
-來勢洶洶
-醫療系統癱瘓
-衆志成城
-其實人心渙散
-王朝末年
-總是多災多難
-清官俠客
-百姓翹首以盼
-如何粉飾
-朝廷自有手段
-死亡幾許
-數字稍作變換
-歌舞昇平
-每晚七點收看
-領袖形象
-從來光輝偉岸
-人民幸福
-盛世如你所願
-惺惺作態
-掩蓋內憂外患
-經濟大船
-觸底不再反彈
-銀行爛賬
-全靠大水漫灌
-貿易爭端
-根本毫無勝算
-孤立無援
-大國崛起夢斷
-博士治國
-不過沐猴而冠
-細看現實
-似乎更像魔幻
-表面光鮮
-分明已經破爛
-光明逝去
-唯有無盡黑暗
-聽見人們
-仍在大聲叫喚
-加油武漢！
-加油武漢！'>
+<meta property='og:description' content='不見征戰 卻有生靈塗炭 大街小巷 滿目蕭條慘淡 人造病毒 何人保管不善 刻意欺瞞 導致傳播氾濫 來勢洶洶 醫療系統癱瘓 衆志成城 其實人心渙散 疫情真相 媒體噤若寒蟬'>
 <meta property='og:url' content='https://lne-lg10.github.io/post/wuhan/'>
 <meta property='og:site_name' content='荒島浮生'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/4760403969723691e8b64480eee63492?s=256'><meta property='article:author' content='https://facebook.com/starrysea'><meta property='article:section' content='Post'><meta property='article:tag' content='現代詩'><meta property='article:published_time' content='2020-03-04T00:00:00Z'><meta property='article:modified_time' content='2020-03-04T00:00:00Z'><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@shitizen'><meta name='twitter:creator' content='@shitizen'>
@@ -170,20 +123,30 @@
       <hr>
 <p>不見征戰<br>
 卻有生靈塗炭<br>
-封城閉戶<br>
-一片蕭條慘淡<br>
+大街小巷<br>
+滿目蕭條慘淡<br>
 人造病毒<br>
 何人保管不善<br>
-刻意隱瞞<br>
+刻意欺瞞<br>
 導致傳播氾濫<br>
 來勢洶洶<br>
 醫療系統癱瘓<br>
 衆志成城<br>
 其實人心渙散<br>
+疫情真相<br>
+媒體噤若寒蟬<br>
+封城閉戶<br>
+衙門尸位素餐<br>
+焚屍爐內<br>
+猶有屍骨未寒<br>
+城市上空<br>
+二氧化硫瀰漫<br>
+人間氣象<br>
+遍地滅門慘案<br>
+清官俠客<br>
+屁民翹首以盼<br>
 王朝末年<br>
 總是多災多難<br>
-清官俠客<br>
-百姓翹首以盼<br>
 如何粉飾<br>
 朝廷自有手段<br>
 死亡幾許<br>
@@ -192,17 +155,19 @@
 每晚七點收看<br>
 領袖形象<br>
 從來光輝偉岸<br>
+指鹿爲馬<br>
+羣臣皆是模範<br>
 人民幸福<br>
 盛世如你所願<br>
-惺惺作態<br>
-掩蓋內憂外患<br>
-經濟大船<br>
+苟延殘喘<br>
+難掩內憂外患<br>
+經濟沈船<br>
 觸底不再反彈<br>
-銀行爛賬<br>
-全靠大水漫灌<br>
+銀行壞賬<br>
+任憑大水漫灌<br>
 貿易爭端<br>
 根本毫無勝算<br>
-孤立無援<br>
+四面楚歌<br>
 大國崛起夢斷<br>
 博士治國<br>
 不過沐猴而冠<br>
@@ -214,8 +179,8 @@
 唯有無盡黑暗<br>
 聽見人們<br>
 仍在大聲叫喚<br>
-加油武漢！<br>
-加油武漢！</p>
+加油！武漢！<br>
+加油！武漢！</p>
 
       
       <div class="related">
@@ -254,6 +219,8 @@
   <div class="container">
     <aside><div id="disqus_thread"></div></aside>
   
+    <div id="show_comments"><a id="load_comments" class="button is-link">Load comments</a></div>
+  
     <script type="text/javascript">
       var disqus_shortname = 'XgNxS6SOhu';
       function disqus() {
@@ -262,7 +229,17 @@
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
       }
   
-      disqus();
+      
+      var hash = window.location.hash.substr(1);
+      if ((hash.length > 8) && (hash.substring(0, 8) === "comment-")) {
+        disqus();
+        document.getElementById("show_comments").style.display = "none";
+      } else {
+        document.getElementById('load_comments').onclick = function() {
+          disqus();
+          document.getElementById("show_comments").style.display = "none";
+        };
+      }
   
 
     </script>

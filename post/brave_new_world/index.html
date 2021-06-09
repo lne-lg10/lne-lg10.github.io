@@ -7,9 +7,7 @@
 <title>修路記 | 荒島浮生</title>
 
 <meta property='og:title' content='修路記 - 荒島浮生'>
-<meta property='og:description' content='大理生活七年，已經記不清這是第幾次鋪設市政管網了。以前一直很疑惑，反復挖路埋管道費時費力又費錢，為什麽不能一次性把所有管道鋪好，一勞永逸呢。直到後來讀到一個笑話，才恍然大悟。笑話大意是：兩個經濟系的學生互相許諾只要對方吃下一坨狗屎，自己就支付5000萬。他們在各自吃完一坨狗屎之後覺得有些不對勁，於是去找教授，教授聽完他們的述說激動得不能自已，興奮得大叫：妳們僅僅吃了兩坨屎就給國家貢獻了一個億的GDP！
-我們的國家目前正處於前所未有的發展階段，各地都在大興土木大搞建設，規模之大耗費之巨即使是當年秦始皇修長城，法老建金字塔也望塵莫及。中國之所以能成為現在全球GDP排名第二的偉大國家，靠的當然不是吹牛，而是辛勤智慧的勞動人民腳踏實地幹出來，一口一口啃出來的。
-所以，現在每當我看到挖路，都會像那個教授一樣激動得不能自已。那直沖雲霄的吊車，正把我们生活的希望高高吊起，而那連綿不絕的管道，即将引领我们通往幸福的彼岸。我為自己能生活在這樣一個偉大的國家而自豪。'>
+<meta property='og:description' content='大理生活七年，已經記不清這是第幾次鋪設市政管網了。以前一直很疑惑，反復挖路埋管道費時費力又費錢，為什麽不能一次性把所有管道鋪好，一勞永逸呢。'>
 <meta property='og:url' content='https://lne-lg10.github.io/post/brave_new_world/'>
 <meta property='og:site_name' content='荒島浮生'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/4760403969723691e8b64480eee63492?s=256'><meta property='article:author' content='https://facebook.com/starrysea'><meta property='article:section' content='Post'><meta property='article:tag' content='荒唐言'><meta property='article:published_time' content='2019-05-31T00:00:00Z'><meta property='article:modified_time' content='2019-05-31T00:00:00Z'><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@shitizen'><meta name='twitter:creator' content='@shitizen'>
@@ -164,6 +162,8 @@
   <div class="container">
     <aside><div id="disqus_thread"></div></aside>
   
+    <div id="show_comments"><a id="load_comments" class="button is-link">Load comments</a></div>
+  
     <script type="text/javascript">
       var disqus_shortname = 'XgNxS6SOhu';
       function disqus() {
@@ -172,7 +172,17 @@
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
       }
   
-      disqus();
+      
+      var hash = window.location.hash.substr(1);
+      if ((hash.length > 8) && (hash.substring(0, 8) === "comment-")) {
+        disqus();
+        document.getElementById("show_comments").style.display = "none";
+      } else {
+        document.getElementById('load_comments').onclick = function() {
+          disqus();
+          document.getElementById("show_comments").style.display = "none";
+        };
+      }
   
 
     </script>

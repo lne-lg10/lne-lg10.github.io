@@ -7,32 +7,7 @@
 <title>五菱在大理 | 荒島浮生</title>
 
 <meta property='og:title' content='五菱在大理 - 荒島浮生'>
-<meta property='og:description' content='在大理開車以來，最不喜歡的就是晚上走大麗路和江尾這一段。
-如果開車像繪畫一樣，也分藝術流派的話，當地這些座駕以五菱為主的村民司機大多數都可以歸入野獸派，駕風濃重而粗獷，野蠻又粗暴。但是從轉向從不打燈，隨心所欲，想停就停，常常逆行的角度來欣賞，這些司機又自由奔放得充滿了浪漫主義的色彩。
-每當這些開得猛玩手機技術差素質低，忠於內心自我意識的司機們，在得到三不管真空地帶的地利之便的時候，便開始在路上肆行無忌起來。那改得花裏胡哨的車燈，把漆黑的路面照得光怪陸離。明亮耀眼的遠光燈，仿佛來自久遠的創世之光，點亮了這幽暗的世界。而車內廣場舞般的音樂聲響，恢弘遼遠氣勢磅礴得又如同生命誕生之初那亙古的雷鳴，劃破這寂靜的夜空，撼人至深。時不時從路邊竄出來的摩托車，像幽靈般悄無聲息地飄蕩在路上，踏著鬼魅的舞步，忽前忽後，忽左忽右，點綴著這片古老神秘的大陸。這真是：
-不計其數遠光狗，
-東西南北滿地走。
-駕車司機技術差，
-七彎八拐像醉酒。
-車內吞雲又吐霧，
-手上香煙不離口。
-忽然撞倒電線桿，
-還罵別人是新手。
-最後，我要把這首五菱之歌，獻給所有的司機朋友：
-啊，五菱
-妳比三菱多兩菱
-秋名山不見了妳的蹤跡
-大麗路上卻能目睹妳的身影
-那些關於妳永恒不敗的傳說
-都襯托不出妳高大的身形
-妳用音響把沈睡的人們
-徹底喚醒
-妳用遠光給黑暗的世界
-帶來光明
-今後的夜晚
-不再淒清
-今後的天空
-雨過天晴'>
+<meta property='og:description' content='在大理開車以來，最不喜歡的就是晚上走大麗路和江尾這一段。 如果開車像繪畫一樣，也分藝術流派的話，當地這些座駕以五菱為主的村民司機大多數都可以歸'>
 <meta property='og:url' content='https://lne-lg10.github.io/post/crazy_wuling/'>
 <meta property='og:site_name' content='荒島浮生'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/4760403969723691e8b64480eee63492?s=256'><meta property='article:author' content='https://facebook.com/starrysea'><meta property='article:section' content='Post'><meta property='article:tag' content='荒唐言'><meta property='article:tag' content='惡趣味'><meta property='article:tag' content='打油詩'><meta property='article:published_time' content='2017-10-07T00:00:00Z'><meta property='article:modified_time' content='2017-10-07T00:00:00Z'><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@shitizen'><meta name='twitter:creator' content='@shitizen'>
@@ -217,6 +192,8 @@
   <div class="container">
     <aside><div id="disqus_thread"></div></aside>
   
+    <div id="show_comments"><a id="load_comments" class="button is-link">Load comments</a></div>
+  
     <script type="text/javascript">
       var disqus_shortname = 'XgNxS6SOhu';
       function disqus() {
@@ -225,7 +202,17 @@
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
       }
   
-      disqus();
+      
+      var hash = window.location.hash.substr(1);
+      if ((hash.length > 8) && (hash.substring(0, 8) === "comment-")) {
+        disqus();
+        document.getElementById("show_comments").style.display = "none";
+      } else {
+        document.getElementById('load_comments').onclick = function() {
+          disqus();
+          document.getElementById("show_comments").style.display = "none";
+        };
+      }
   
 
     </script>

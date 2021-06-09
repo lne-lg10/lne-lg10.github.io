@@ -7,8 +7,7 @@
 <title>塔下村 | 荒島浮生</title>
 
 <meta property='og:title' content='塔下村 - 荒島浮生'>
-<meta property='og:description' content='辭職出來獨自旅行，走走停停之間，差不多兩個月過去了，已經去了不少地方，也即將去更多的地方，但是很可能再也不會遇到這麼溫馨感覺像家一般的青旅了。不僅僅是因為旅舍的裝修佈置處處體現著主人的用心，更多的是因為莫姐對待客人的細緻入微以及隨和大度。 而且，風景優美的塔下村，古樸寧靜，一條小河從村中蜿蜒流淌，大小不一的土樓背山而建，臨水而居，錯落有致地分佈在小河的兩旁，宛若天成又不失精緻。沐浴陽光就靜靜的躺在這些土樓之中，遠離了城市的喧囂和浮華，有的只是美麗的庭院，乾淨的房間，清新的空氣，遠山傳來的輕輕鳥鳴，還有熱情好客的主人。住在這裡的這些日子，天晴的時候就推開院門，望見雪白的流雲飛過青翠的遠山。下雨的時候，就看著山上雨霧繚繞緩緩升騰，雲生雲起。夕陽西下的時候，晚霞滿天。有星星的夏夜，一道銀河橫亙天際，坐在院中也清晰可辨。藍天，流雲，晚霞，星河，一切都是那麼美，如詩如畫，和塔下的小橋，流水，土樓交織在一起，如夢如幻，彷彿與世隔絶的桃花源，令人陶醉其中，而不覺時光飛逝。
-另外值得一提的是，除了田螺坑、河坑土樓群，塔下村附近的馬頭背和南歐也是值得一去的兩個小村莊，鮮有遊人，正因為如此，才顯得更加古樸安詳，熱愛生活，喜歡旅行的人一定能領略到那種別樣的風土人情。'>
+<meta property='og:description' content='辭職出來獨自旅行，走走停停之間，差不多兩個月過去了，已經去了不少地方，也即將去更多的地方，但是很可能再也不會遇到這麼溫馨感覺像家一般的青旅了'>
 <meta property='og:url' content='https://lne-lg10.github.io/post/solo_travel/'>
 <meta property='og:site_name' content='荒島浮生'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/4760403969723691e8b64480eee63492?s=256'><meta property='article:author' content='https://facebook.com/starrysea'><meta property='article:section' content='Post'><meta property='article:tag' content='遊記'><meta property='article:published_time' content='2012-07-12T00:00:00Z'><meta property='article:modified_time' content='2012-07-12T00:00:00Z'><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@shitizen'><meta name='twitter:creator' content='@shitizen'>
@@ -148,6 +147,8 @@
   <div class="container">
     <aside><div id="disqus_thread"></div></aside>
   
+    <div id="show_comments"><a id="load_comments" class="button is-link">Load comments</a></div>
+  
     <script type="text/javascript">
       var disqus_shortname = 'XgNxS6SOhu';
       function disqus() {
@@ -156,7 +157,17 @@
         (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
       }
   
-      disqus();
+      
+      var hash = window.location.hash.substr(1);
+      if ((hash.length > 8) && (hash.substring(0, 8) === "comment-")) {
+        disqus();
+        document.getElementById("show_comments").style.display = "none";
+      } else {
+        document.getElementById('load_comments').onclick = function() {
+          disqus();
+          document.getElementById("show_comments").style.display = "none";
+        };
+      }
   
 
     </script>
