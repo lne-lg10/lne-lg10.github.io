@@ -4,16 +4,16 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 
-<title>优雅的二维数组循环赋值 | 荒島浮生</title>
+<title>优雅的二维数组循环赋值 | 孤島浮生</title>
 
-<meta property='og:title' content='优雅的二维数组循环赋值 - 荒島浮生'>
-<meta property='og:description' content='最近在 C&#43;&#43; 博客上看到了一段優雅的二維數組賦值代碼，學習了一下。 作者為了實現圖片中特定效果的二維數組，參考迷宮問題設計了一個優雅的算法，算法的基'>
+<meta property='og:title' content='优雅的二维数组循环赋值 - 孤島浮生'>
+<meta property='og:description' content='最近在 C&#43;&#43; 博客上看到了一段優雅的二維數組賦值代碼，學習了一下。 作者為了實現圖片中特定效果的二維數組，參考迷宮問題設計'>
 <meta property='og:url' content='https://lne-lg10.github.io/post/matrix_init/'>
-<meta property='og:site_name' content='荒島浮生'>
+<meta property='og:site_name' content='孤島浮生'>
 <meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/4760403969723691e8b64480eee63492?s=256'><meta property='article:author' content='https://facebook.com/starrysea'><meta property='article:section' content='Post'><meta property='article:tag' content='c'><meta property='article:published_time' content='2008-04-06T00:00:00Z'><meta property='article:modified_time' content='2008-04-06T00:00:00Z'><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@shitizen'><meta name='twitter:creator' content='@shitizen'>
 
 
-<link href="https://lne-lg10.github.io/index.xml" rel="alternate" type="application/rss+xml" title="荒島浮生">
+<link href="https://lne-lg10.github.io/index.xml" rel="alternate" type="application/rss+xml" title="孤島浮生">
 
 <link rel="stylesheet" href="/css/style.css"><link rel='stylesheet' href='https://lne-lg10.github.io/css/custom.css'><link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
 <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
@@ -30,7 +30,7 @@
     <nav id="nav-main" class="nav">
       <div id="nav-name" class="nav-left">
         <a id="nav-anchor" class="nav-item" href="https://lne-lg10.github.io">
-          <h1 id="nav-heading" class="title is-4">荒島浮生</h1>
+          <h1 id="nav-heading" class="title is-4">孤島浮生</h1>
         </a>
       </div>
       <div class="nav-right">
@@ -210,14 +210,14 @@ constint COL__ <span style="color:#719e07">=</span> <span style="color:#2aa198">
 	<span style="color:#dc322f">int</span> nOffset <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; 
 	Position tempPos; 
 	<span style="color:#719e07">for</span> (<span style="color:#dc322f">int</span> i <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>; i <span style="color:#719e07">&lt;</span> ROW__ <span style="color:#719e07">*</span> COL__; i<span style="color:#719e07">++</span>) { 
-		<span style="color:#586e75">// nOffset % 4 ------&gt; 右-&gt;下-&gt;左-&gt;上 循环
+		<span style="color:#586e75">// nOffset % 4 ------&gt; 右-&gt;下-&gt;左-&gt;上 循環
 </span><span style="color:#586e75"></span>		tempPos.nRow <span style="color:#719e07">=</span> curPos.nRow <span style="color:#719e07">+</span> offset[nOffset <span style="color:#719e07">%</span> <span style="color:#2aa198">4</span>].nRow;
 		tempPos.nCol <span style="color:#719e07">=</span> curPos.nCol <span style="color:#719e07">+</span> offset[nOffset <span style="color:#719e07">%</span> <span style="color:#2aa198">4</span>].nCol; 
 		<span style="color:#719e07">if</span> (tempPos.nRow <span style="color:#719e07">&gt;=</span> ROW__
 		    <span style="color:#719e07">||</span> tempPos.nRow <span style="color:#719e07">&lt;</span> <span style="color:#2aa198">0</span> 
 		    <span style="color:#719e07">||</span> tempPos.nCol <span style="color:#719e07">&gt;=</span> COL__ 
-		    <span style="color:#719e07">||</span> tempPos.nCol <span style="color:#719e07">&lt;</span> <span style="color:#2aa198">0</span> <span style="color:#586e75">// 不超过边界
-</span><span style="color:#586e75"></span>		    <span style="color:#719e07">||</span> mat[tempPos.nRow][tempPos.nCol] <span style="color:#719e07">&gt;</span> <span style="color:#2aa198">0</span>) {<span style="color:#586e75">// 已经有值 
+		    <span style="color:#719e07">||</span> tempPos.nCol <span style="color:#719e07">&lt;</span> <span style="color:#2aa198">0</span> <span style="color:#586e75">// 不超過邊界
+</span><span style="color:#586e75"></span>		    <span style="color:#719e07">||</span> mat[tempPos.nRow][tempPos.nCol] <span style="color:#719e07">&gt;</span> <span style="color:#2aa198">0</span>) {<span style="color:#586e75">// 已經有值 
 </span><span style="color:#586e75"></span>			i<span style="color:#719e07">--</span>; 
 			nOffset<span style="color:#719e07">++</span>; 
 			<span style="color:#719e07">continue</span>; 

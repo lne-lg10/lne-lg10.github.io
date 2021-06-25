@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>人文 on 荒島浮生</title>
+    <title>人文 on 孤島浮生</title>
     <link>https://lne-lg10.github.io/tags/%E4%BA%BA%E6%96%87/</link>
-    <description>Recent content in 人文 on 荒島浮生</description>
+    <description>Recent content in 人文 on 孤島浮生</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a href=&#34;https://github.com/lne-lg10&#34;&gt;亂世閒人&lt;/a&gt; © 2021. 原創文章請勿轉載，謝謝！</copyright>
@@ -14,7 +14,7 @@
       <pubDate>Tue, 14 Apr 2009 00:00:00 +0000</pubDate>
       
       <guid>https://lne-lg10.github.io/post/mine_in_lua/</guid>
-      <description>剛剛完成了一個有點特別的掃雷遊戲，遊戲的邏輯全部是用 Lua 實現的。雖然不同的語言可以用來描述相同的思想，但是不同的語言亦會有不同的表達方式。從網</description>
+      <description>剛剛完成了一個有點特別的掃雷遊戲，遊戲的邏輯全部是用 Lua 實現的。雖然不同的語言可以用來描述相同的思想，但是不同的語言</description>
     </item>
     
     <item>
@@ -23,7 +23,7 @@
       <pubDate>Mon, 15 Dec 2008 00:00:00 +0000</pubDate>
       
       <guid>https://lne-lg10.github.io/post/stellarium/</guid>
-      <description>Stellarium 是一款非常優秀的天文軟件，它可以在電腦屏幕上展現出美麗而真實的星空，彌補生活在城市中的人們無法領略星空之美的遺憾。網上的介紹文字很多了，不</description>
+      <description>Stellarium 是一款非常優秀的天文軟件，它可以在電腦屏幕上展現出美麗而真實的星空，彌補生活在城市中的人們無法領略星空之美的遺憾</description>
     </item>
     
   </channel>

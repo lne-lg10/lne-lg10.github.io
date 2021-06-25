@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>c on 荒島浮生</title>
+    <title>c on 孤島浮生</title>
     <link>https://lne-lg10.github.io/tags/c/</link>
-    <description>Recent content in c on 荒島浮生</description>
+    <description>Recent content in c on 孤島浮生</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en</language>
     <copyright>&lt;a href=&#34;https://github.com/lne-lg10&#34;&gt;亂世閒人&lt;/a&gt; © 2021. 原創文章請勿轉載，謝謝！</copyright>
@@ -14,7 +14,7 @@
       <pubDate>Sun, 06 Apr 2008 00:00:00 +0000</pubDate>
       
       <guid>https://lne-lg10.github.io/post/matrix_init/</guid>
-      <description>最近在 C++ 博客上看到了一段優雅的二維數組賦值代碼，學習了一下。 作者為了實現圖片中特定效果的二維數組，參考迷宮問題設計了一個優雅的算法，算法的基</description>
+      <description>最近在 C++ 博客上看到了一段優雅的二維數組賦值代碼，學習了一下。 作者為了實現圖片中特定效果的二維數組，參考迷宮問題設計</description>
     </item>
     
   </channel>
