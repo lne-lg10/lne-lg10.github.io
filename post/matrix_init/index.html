@@ -1,0 +1,321 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"  lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>优雅的二维数组循环赋值 | 孤島浮生</title>
+
+<meta property='og:title' content='优雅的二维数组循环赋值 - 孤島浮生'>
+<meta property='og:description' content='最近在 C&#43;&#43; 博客上看到了一段優雅的二維數組賦值代碼，學習了一下。 作者為了實現圖片中特定效果的二維數組，參考迷宮問題設計'>
+<meta property='og:url' content='https://lne-lg10.github.io/post/matrix_init/'>
+<meta property='og:site_name' content='孤島浮生'>
+<meta property='og:type' content='article'><meta property='og:image' content='https://www.gravatar.com/avatar/6fbc37939d7715e07c9fd5523dddce3f?s=256'><meta property='article:author' content='https://facebook.com/heheda'><meta property='article:section' content='Post'><meta property='article:tag' content='C'><meta property='article:published_time' content='2008-04-06T00:00:00Z'><meta property='article:modified_time' content='2008-04-06T00:00:00Z'><meta name='twitter:card' content='summary'><meta name='twitter:site' content='@heheda'><meta name='twitter:creator' content='@heheda'>
+
+
+<link href="https://lne-lg10.github.io/index.xml" rel="alternate" type="application/rss+xml" title="孤島浮生">
+
+<link rel="stylesheet" href="/css/style.css"><link rel='stylesheet' href='https://lne-lg10.github.io/css/custom.css'>
+
+<link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
+<link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
+<link rel="manifest" href="/site.webmanifest">
+<link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
+<link rel="canonical" href="https://lne-lg10.github.io/post/matrix_init/">
+<meta name="msapplication-TileColor" content="#da532c">
+<meta name="theme-color" content="#ffffff">
+</head>
+<body>
+
+<section class="section">
+  <div class="container">
+    <nav id="nav-main" class="nav">
+      <div id="nav-name" class="nav-left">
+        <a id="nav-anchor" class="nav-item" href="https://lne-lg10.github.io">
+          <h1 id="nav-heading" class="title is-4">孤島浮生</h1>
+        </a>
+      </div>
+      <div class="nav-right">
+        <nav id="nav-items" class="nav-item level is-mobile"><a class="level-item" aria-label="github" href='https://github.com/heheda'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="facebook" href='https://facebook.com/heheda'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="twitter" href='https://twitter.com/heheda'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M23 3a10.9 10.9 0 0 1-3.14 1.53 4.48 4.48 0 0 0-7.86 3v1A10.66 10.66 0 0 1 3 4s-4 9 5 13a11.64 11.64 0 0 1-7 2c9 5 20 0 20-11.5a4.5 4.5 0 0 0-.08-.83A7.72 7.72 0 0 0 23 3z"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="instagram" href='https://instagram.com/heheda'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5"/>
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"/>
+    <line x1="17.5" y1="6.5" x2="17.5" y2="6.5"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="email" href='mailto:heheda@tutanota.com'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/>
+    <polyline points="22,6 12,13 2,6"/>
+    
+  </svg></i>
+            </span>
+          </a><a class="level-item" aria-label="rss" href='/index.xml'
+            target='_blank' rel='noopener'>
+            <span class="icon">
+              <i class><svg viewbox='0 0 24 24' stroke-linecap='round' stroke-linejoin='round' stroke-width='2' aria-hidden='true'>
+    
+    <path d="M4 11a9 9 0 0 1 9 9"></path><path d="M4 4a16 16 0 0 1 16 16"></path><circle cx="5" cy="19" r="1"></circle>
+    
+  </svg></i>
+            </span>
+          </a></nav>
+      </div>
+    </nav>
+
+    <nav class="nav">
+      
+
+      
+    </nav>
+
+  </div>
+  <script src="/js/navicon-shift.js"></script>
+</section>
+<section class="section">
+  <div class="container">
+    <div class="subtitle tags is-6 is-pulled-right">
+      
+      
+<a class="subtitle is-6" href="/tags/c/">#C</a>
+
+
+
+
+      
+    </div>
+    <h2 class="subtitle is-6">April 6, 2008</h2>
+    <h1 class="title">优雅的二维数组循环赋值</h1>
+    
+    <div class="content">
+      <hr>
+<p>最近在 C++ 博客上看到了一段優雅的二維數組賦值代碼，學習了一下。  <br>
+作者為了實現圖片中特定效果的二維數組，參考迷宮問題設計了一個優雅的算法，算法的基本思想就是對二維數組按照從外到內的方式賦值，在賦值的過程中加入了對二維數組邊界的判斷，只需要一層循環就可以實現。整個賦值過程和四衝程發動機工作原理有點類似，循環往複，各種變數之間此消彼長，代碼如下：</p>
+<div class="highlight"><div style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;">
+<table style="border-spacing:0;padding:0;margin:0;border:0;"><tr><td style="vertical-align:top;padding:0;margin:0;border:0;">
+<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 1
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 2
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 3
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 4
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 5
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 6
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 7
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 8
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050"> 9
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">10
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">11
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">12
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">13
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">14
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">15
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">16
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">17
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">18
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">19
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">20
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">21
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">22
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">23
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">24
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">25
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">26
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">27
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">28
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">29
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">30
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">31
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">32
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">33
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">34
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">35
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">36
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">37
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">38
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">39
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">40
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">41
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">42
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">43
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">44
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">45
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">46
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">47
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">48
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">49
+</span><span style="white-space:pre;-webkit-user-select:none;user-select:none;margin-right:0.4em;padding:0 0.4em 0 0.4em;color:#495050">50
+</span></code></pre></td>
+<td style="vertical-align:top;padding:0;margin:0;border:0;;width:100%">
+<pre tabindex="0" style="color:#93a1a1;background-color:#002b36;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c" data-lang="c"><span style="display:flex;"><span>constint ROW__ <span style="color:#719e07">=</span> <span style="color:#2aa198">10</span>; 
+</span></span><span style="display:flex;"><span>constint COL__ <span style="color:#719e07">=</span> <span style="color:#2aa198">10</span>; 
+</span></span><span style="display:flex;"><span><span style="color:#dc322f">int</span> mat[ROW__][COL__]; 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#719e07">struct</span> Position { 
+</span></span><span style="display:flex;"><span>	<span style="color:#dc322f">int</span> nRow; 
+</span></span><span style="display:flex;"><span>	<span style="color:#dc322f">int</span> nCol; 
+</span></span><span style="display:flex;"><span>}; 
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#dc322f">int</span> <span style="color:#268bd2">main</span>(<span style="color:#dc322f">int</span> argc, <span style="color:#dc322f">char</span><span style="color:#719e07">*</span> argv[]) 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>	Position offset[<span style="color:#2aa198">4</span>]; 
+</span></span><span style="display:flex;"><span>	<span style="color:#586e75">//從左至右，行號不變，列號加一
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span> 	offset[<span style="color:#2aa198">0</span>].nRow <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; 
+</span></span><span style="display:flex;"><span>	offset[<span style="color:#2aa198">0</span>].nCol <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>; 
+</span></span><span style="display:flex;"><span>	<span style="color:#586e75">//從上至下，行號加一，列號不變
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>	offset[<span style="color:#2aa198">1</span>].nRow <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>; 
+</span></span><span style="display:flex;"><span>	offset[<span style="color:#2aa198">1</span>].nCol <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; 
+</span></span><span style="display:flex;"><span>	<span style="color:#586e75">//從右至左，行號不變，列號減一
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>	offset[<span style="color:#2aa198">2</span>].nRow <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; 
+</span></span><span style="display:flex;"><span>	offset[<span style="color:#2aa198">2</span>].nCol <span style="color:#719e07">=</span> <span style="color:#719e07">-</span><span style="color:#2aa198">1</span>; 
+</span></span><span style="display:flex;"><span>	<span style="color:#586e75">//從下至上，行號減一，列號不變
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>	offset[<span style="color:#2aa198">3</span>].nRow <span style="color:#719e07">=</span> <span style="color:#719e07">-</span><span style="color:#2aa198">1</span>; 
+</span></span><span style="display:flex;"><span>	offset[<span style="color:#2aa198">3</span>].nCol <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	Position curPos; 
+</span></span><span style="display:flex;"><span>	curPos.nRow <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; 
+</span></span><span style="display:flex;"><span>	curPos.nCol <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; 
+</span></span><span style="display:flex;"><span>	mat[<span style="color:#2aa198">0</span>][<span style="color:#2aa198">0</span>] <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>	<span style="color:#dc322f">int</span> nOffset <span style="color:#719e07">=</span> <span style="color:#2aa198">0</span>; 
+</span></span><span style="display:flex;"><span>	Position tempPos; 
+</span></span><span style="display:flex;"><span>	<span style="color:#719e07">for</span> (<span style="color:#dc322f">int</span> i <span style="color:#719e07">=</span> <span style="color:#2aa198">1</span>; i <span style="color:#719e07">&lt;</span> ROW__ <span style="color:#719e07">*</span> COL__; i<span style="color:#719e07">++</span>) { 
+</span></span><span style="display:flex;"><span>		<span style="color:#586e75">// nOffset % 4 ------&gt; 右-&gt;下-&gt;左-&gt;上 循環
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>		tempPos.nRow <span style="color:#719e07">=</span> curPos.nRow <span style="color:#719e07">+</span> offset[nOffset <span style="color:#719e07">%</span> <span style="color:#2aa198">4</span>].nRow;
+</span></span><span style="display:flex;"><span>		tempPos.nCol <span style="color:#719e07">=</span> curPos.nCol <span style="color:#719e07">+</span> offset[nOffset <span style="color:#719e07">%</span> <span style="color:#2aa198">4</span>].nCol; 
+</span></span><span style="display:flex;"><span>		<span style="color:#719e07">if</span> (tempPos.nRow <span style="color:#719e07">&gt;=</span> ROW__
+</span></span><span style="display:flex;"><span>		    <span style="color:#719e07">||</span> tempPos.nRow <span style="color:#719e07">&lt;</span> <span style="color:#2aa198">0</span> 
+</span></span><span style="display:flex;"><span>		    <span style="color:#719e07">||</span> tempPos.nCol <span style="color:#719e07">&gt;=</span> COL__ 
+</span></span><span style="display:flex;"><span>		    <span style="color:#719e07">||</span> tempPos.nCol <span style="color:#719e07">&lt;</span> <span style="color:#2aa198">0</span> <span style="color:#586e75">// 不超過邊界
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>		    <span style="color:#719e07">||</span> mat[tempPos.nRow][tempPos.nCol] <span style="color:#719e07">&gt;</span> <span style="color:#2aa198">0</span>) {<span style="color:#586e75">// 已經有值 
+</span></span></span><span style="display:flex;"><span><span style="color:#586e75"></span>			i<span style="color:#719e07">--</span>; 
+</span></span><span style="display:flex;"><span>			nOffset<span style="color:#719e07">++</span>; 
+</span></span><span style="display:flex;"><span>			<span style="color:#719e07">continue</span>; 
+</span></span><span style="display:flex;"><span>		}
+</span></span><span style="display:flex;"><span>	       	curPos <span style="color:#719e07">=</span> tempPos; 
+</span></span><span style="display:flex;"><span>		mat[curPos.nRow][curPos.nCol] <span style="color:#719e07">=</span> i <span style="color:#719e07">+</span> <span style="color:#2aa198">1</span>; 
+</span></span><span style="display:flex;"><span>	} 
+</span></span><span style="display:flex;"><span>	<span style="color:#719e07">return</span> <span style="color:#2aa198">0</span>; 
+</span></span><span style="display:flex;"><span>} 
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+<p>數組賦值後如圖：<br>
+<img src="/img/matrix.png" alt=""></p>
+
+      
+      <div class="related">
+</div>
+      
+    </div>
+    
+  </div>
+</section>
+
+    <script src="/js/copycode.js"></script>
+
+<script src="https://utteranc.es/client.js"
+        repo="[ENTER REPO HERE]"
+        issue-term="url"
+        theme="github-light"
+        crossorigin="anonymous"
+        async>
+</script>
+
+
+<section class="section">
+  <div class="container">
+    <aside><div id="disqus_thread"></div></aside>
+  
+    <script type="text/javascript">
+      var disqus_shortname = 'heheda';
+      function disqus() {
+        var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+        dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+        (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+      }
+  
+      disqus();
+  
+
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript" rel="nofollow">comments powered by Disqus.</a></noscript>
+  </div>
+</section>
+
+
+<section class="section">
+  <div class="container has-text-centered">
+    <p>Copyright © 2023 <a href="https://github.com/lne-lg10">山與</a>, All rights reserved. <br />  原創文章請勿轉載，謝謝！</p>
+    
+      <p>Powered by <a href="https://gohugo.io/">Hugo</a> &amp; <a href="https://github.com/ribice/kiss">Kiss</a>.</p>
+    
+  </div>
+</section>
+
+<script type="text/javascript">
+  var _paq = _paq || [];
+  _paq.push(['trackPageView']);
+  _paq.push(['enableLinkTracking']);
+  (function() {
+    var u="\/\/matomo.example.com\/";
+    _paq.push(['setTrackerUrl', u+'piwik.php']);
+    _paq.push(['setSiteId', '1']);
+    var d=document, g=d.createElement('script'), s=d.getElementsByTagName('script')[0];
+    g.type='text/javascript'; g.async=true; g.defer=true; g.src=u+'piwik.js'; s.parentNode.insertBefore(g,s);
+  })();
+</script>
+<noscript>
+  <img src="//matomo.example.com/piwik.php?idsite=1&amp;rec=1" style="border:0" alt="">
+</noscript>
+
+<script>
+    (function(f, a, t, h, o, m){
+        a[h]=a[h]||function(){
+            (a[h].q=a[h].q||[]).push(arguments)
+        };
+        o=f.createElement('script'),
+        m=f.getElementsByTagName('script')[0];
+        o.async=1; o.src=t; o.id='fathom-script';
+        m.parentNode.insertBefore(o,m)
+    })(document, window, '\/\/fathom.example.com\/tracker.js', 'fathom');
+    fathom('trackPageview');
+</script>
+
+
+</body>
+</html>
+

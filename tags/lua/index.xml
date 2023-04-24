@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Lua on 孤島浮生</title>
+    <link>https://lne-lg10.github.io/tags/lua/</link>
+    <description>Recent content in Lua on 孤島浮生</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en</language>
+    <copyright>Copyright © 2023 &lt;a href=&#34;https://github.com/lne-lg10&#34;&gt;山與&lt;/a&gt;, All rights reserved. &lt;br /&gt;  原創文章請勿轉載，謝謝！</copyright>
+    <lastBuildDate>Tue, 14 Apr 2009 00:00:00 +0000</lastBuildDate><atom:link href="https://lne-lg10.github.io/tags/lua/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Lua掃雷算法</title>
+      <link>https://lne-lg10.github.io/post/mine_in_lua/</link>
+      <pubDate>Tue, 14 Apr 2009 00:00:00 +0000</pubDate>
+      
+      <guid>https://lne-lg10.github.io/post/mine_in_lua/</guid>
+      <description>剛剛完成了一個有點特別的掃雷遊戲，遊戲的邏輯全部是用 Lua 實現的。雖然不同的語言可以用來描述相同的思想，但是不同的語言</description>
+    </item>
+    
+  </channel>
+</rss>
